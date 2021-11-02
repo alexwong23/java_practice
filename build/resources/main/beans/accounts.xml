@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <bean id="admin" class="com.example.experiments.service.Account.AdminService">
+    <property name="username" value="admin1"></property>
+    <property name="password" value="Supersafe"></property>
+  </bean>
+
+  <bean id="user" class="com.example.experiments.service.Account.UserService">
+    <property name="username" value="user2"></property>
+    <property name="password" value="someRando"></property>
+    <property name="email" value="user2@gmail.com"></property>
+  </bean>
+</beans>
