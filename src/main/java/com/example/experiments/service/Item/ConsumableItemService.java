@@ -21,10 +21,10 @@ public class ConsumableItemService implements ItemService {
     }
 
     @Override
-    public void say() {
-        log.info("\nItem Name: " + this.name +
+    public String toString() {
+        return "\nItem Name: " + this.name +
                 "\nItem Category: " + this.category +
-                "\nItem Price: " + this.price);
+                "\nItem Price: " + this.price;
     }
 
     public String getName() {

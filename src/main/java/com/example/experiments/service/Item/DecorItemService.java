@@ -8,8 +8,6 @@ public class DecorItemService implements ItemService {
     private String category;
     private Double price;
 
-    private Logger log = LoggerFactory.getLogger(DecorItemService.class);
-
     public DecorItemService() {
         this.category = "Decor";
     }
@@ -21,10 +19,10 @@ public class DecorItemService implements ItemService {
     }
 
     @Override
-    public void say() {
-        log.info("\nItem Name: " + this.name +
+    public String toString() {
+        return "\nItem Name: " + this.name +
                 "\nItem Category: " + this.category +
-                "\nItem Price: " + this.price);
+                "\nItem Price: " + this.price;
     }
 
     public String getName() {

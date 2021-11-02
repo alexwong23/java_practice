@@ -23,11 +23,11 @@ public class UserService implements AccountService {
         this.email = email;
     }
 
-    public void say() {
-        log.info("\nId: " + this.id +
+    public String toString() {
+        return "\nId: " + this.id +
                 "\nUsername: " + this.username +
                 "\nPassword: " + this.password +
-                "\nEmail: " + this.email);
+                "\nEmail: " + this.email;
     }
 
     public String getId() { return this.id; }

@@ -4,5 +4,4 @@ public interface ItemService {
     public String getName();
     public String getCategory();
     public Double getPrice();
-    public void say();
 }
