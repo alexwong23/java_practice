@@ -2,17 +2,19 @@ package com.example.experiments.model.Account;
 
 import javax.persistence.*;
 
+import java.time.LocalDate;
+
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity(name = "User_table")
 @Table(
-        name = "user_table",
-        uniqueConstraints = {
-                @UniqueConstraint(
-                        name = "student_email_unique,",
-                        columnNames = "email"
-                )
-        }
+        name = "user_table"
+//        uniqueConstraints = {
+//                @UniqueConstraint(
+//                        name = "user_email_unique,",
+//                        columnNames = "email"
+//                )
+//        }
 )
 public class User extends Person implements Account {
 
@@ -63,8 +65,8 @@ public class User extends Person implements Account {
                        String email,
                        String firstName,
                        String lastName,
-                       Integer age) {
-        super(firstName, lastName, age);
+                       LocalDate dob) {
+        super(firstName, lastName, dob);
         this.username = username;
         this.password = password;
         this.email = email;

@@ -12,6 +12,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 
 @Configuration
@@ -46,19 +48,19 @@ public class AppConfiguration {
         return args -> {
             // retrieve configured instance
             User user = new User(
-                    "MoSalah",
+                    "MoSalahhh",
                     "PASSW_RD",
                     "jamessoh@gmail.com",
                     "James",
                     "Soh",
-                    24);
+                    LocalDate.of(2000, Month.JANUARY, 5));
             User user2 = new User(
-                    "julius99",
+                    "julius922",
                     "gloryOfRome",
                     "juliuscaesar@gmail.com",
                     "Julius",
                     "Caesar",
-                    45);
+                    LocalDate.of(1994, Month.SEPTEMBER, 15));
             userRepository.saveAll(List.of(user, user2));
         };
     }

@@ -5,12 +5,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-  <bean id="admin" class="com.example.experiments.model.Account.AdminService">
+  <bean id="admin" class="com.example.experiments.model.Account.Admin">
     <property name="username" value="admin1"></property>
     <property name="password" value="Supersafe"></property>
   </bean>
 
-  <bean id="user" class="com.example.experiments.model.Account.UserService">
+  <bean id="user" class="com.example.experiments.model.Account.User">
     <property name="username" value="user2"></property>
     <property name="password" value="someRando"></property>
     <property name="email" value="user2@gmail.com"></property>

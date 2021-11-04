@@ -26,18 +26,19 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="a19c736b-729b-45fe-828f-a3d949125883">
-        <schema name="pg_catalog" object-types="function" />
         <schema name="public" object-types="table, view, sequence, function, constraint, index, column, dataset trigger" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="a19c736b-729b-45fe-828f-a3d949125883">
-      <console name="Connection" type="STANDARD" schema="" session="Main"><![CDATA[SELECT  * FROM User_table;]]></console>
+      <console name="Connection" type="STANDARD" schema="" session="Main"><![CDATA[SELECT * FROM User_table;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="a19c736b-729b-45fe-828f-a3d949125883" object-ref="consoles/Connection" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="a19c736b-729b-45fe-828f-a3d949125883" />

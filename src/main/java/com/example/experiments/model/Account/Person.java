@@ -1,18 +1,35 @@
 package com.example.experiments.model.Account;
 
-import javax.persistence.Entity;
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
+import java.time.LocalDate;
+import java.time.Period;
 
+@MappedSuperclass // single table inheritance
 public abstract class Person {
+    @Column(
+            name = "first_name",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String firstName;
+    @Column(
+            name = "last_name",
+            columnDefinition = "TEXT"
+    )
     private String lastName;
+    @Column
+    private LocalDate dob;
+    @Transient
     private Integer age;
 
     public Person() {}
 
-    public Person(String firstName, String lastName, Integer age) {
+    public Person(String firstName, String lastName, LocalDate dob) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.age = age;
+        this.dob = dob;
     }
 
     public String getFirstName() {
@@ -31,11 +48,15 @@ public abstract class Person {
         this.lastName = lastName;
     }
 
-    public Integer getAge() {
-        return age;
+    public LocalDate getDob() {
+        return dob;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    public Integer getAge() {
+        return Period.between(dob, LocalDate.now()).getYears();
     }
 }
