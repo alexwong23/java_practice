@@ -26,6 +26,12 @@ public abstract class Person {
 
     public Person() {}
 
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = LocalDate.now();
+    }
+
     public Person(String firstName, String lastName, LocalDate dob) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -57,6 +63,7 @@ public abstract class Person {
     }
 
     public Integer getAge() {
+        if(dob == null) return 0;
         return Period.between(dob, LocalDate.now()).getYears();
     }
 }

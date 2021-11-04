@@ -61,6 +61,17 @@ public class User extends Person implements Account {
     }
 
     public User(String username,
+                String password,
+                String email,
+                String firstName,
+                String lastName) {
+        super(firstName, lastName);
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+
+    public User(String username,
                        String password,
                        String email,
                        String firstName,

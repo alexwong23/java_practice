@@ -3,14 +3,18 @@ package com.example.experiments.configurations;
 import com.example.experiments.model.Account.Account;
 import com.example.experiments.model.Account.Admin;
 import com.example.experiments.model.Account.User;
-import com.example.experiments.model.Item.ConsumableItemService;
-import com.example.experiments.model.Item.DecorItemService;
-import com.example.experiments.model.Item.ItemService;
+import com.example.experiments.model.Item.ConsumableItem;
+import com.example.experiments.model.Item.DecorItem;
+import com.example.experiments.model.Item.Item;
 import com.example.experiments.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -18,6 +22,8 @@ import java.util.List;
 
 @Configuration
 public class AppConfiguration {
+
+    public static Logger log = LoggerFactory.getLogger(Admin.class);
 
     @Bean
     @ConditionalOnProperty(value = "account.service.mode", havingValue = "admin", matchIfMissing = false)
@@ -33,19 +39,26 @@ public class AppConfiguration {
 
     @Bean
     @ConditionalOnProperty(value = "item.service.mode", havingValue = "consumable", matchIfMissing = false)
-    public ItemService consumableItemService() {
-        return new ConsumableItemService();
+    public Item consumableItemService() {
+        return new ConsumableItem();
     }
 
     @Bean
     @ConditionalOnProperty(value = "item.service.mode", havingValue = "decor", matchIfMissing = true) // returned if nothing found
-    public ItemService decorItemService() {
-        return new DecorItemService();
+    public Item decorItemService() {
+        return new DecorItem();
     }
 
     @Bean
     CommandLineRunner commandLineRunner(UserRepository userRepository) {
         return args -> {
+            // create and configure beans
+            ApplicationContext appContext = new ClassPathXmlApplicationContext("file:src/main/resources/beans/accounts.xml");
+
+            // retrieve configured instance
+            Account userBean = appContext.getBean("user", Account.class);
+            log.info(String.valueOf(userBean));
+
             // retrieve configured instance
             User user = new User(
                     "MoSalahhh",
@@ -61,7 +74,7 @@ public class AppConfiguration {
                     "Julius",
                     "Caesar",
                     LocalDate.of(1994, Month.SEPTEMBER, 15));
-            userRepository.saveAll(List.of(user, user2));
+            userRepository.saveAll(List.of(user, user2, (User) userBean));
         };
     }
 }

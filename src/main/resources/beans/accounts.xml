@@ -5,6 +5,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+  <bean id="dateFormatter" class="java.text.SimpleDateFormat">
+    <constructor-arg value="yyyy-MM-dd" />
+  </bean>
+
   <bean id="admin" class="com.example.experiments.model.Account.Admin">
     <property name="username" value="admin1"></property>
     <property name="password" value="Supersafe"></property>
@@ -16,6 +20,11 @@
     <property name="email" value="user2@gmail.com"></property>
     <property name="firstName" value="Alex"></property>
     <property name="lastName" value="Wong"></property>
-    <property name="age" value="35"></property>
+<!--    TODO: parse dateString as LocalDate -->
+<!--    <property name="dob">-->
+<!--      <bean factory-bean="dateFormatter" factory-method="parse">-->
+<!--        <constructor-arg value="2009-12-23" />-->
+<!--      </bean>-->
+<!--    </property>-->
   </bean>
 </beans>

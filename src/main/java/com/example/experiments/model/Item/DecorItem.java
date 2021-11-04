@@ -1,15 +1,15 @@
 package com.example.experiments.model.Item;
 
-public class DecorItemService implements ItemService {
+public class DecorItem implements Item {
     private String name;
     private String category;
     private Double price;
 
-    public DecorItemService() {
+    public DecorItem() {
         this.category = "Decor";
     }
 
-    public DecorItemService(String name, Double price) {
+    public DecorItem(String name, Double price) {
         this();
         this.name = name;
         this.price = price;

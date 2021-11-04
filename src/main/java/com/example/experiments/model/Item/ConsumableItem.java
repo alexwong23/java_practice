@@ -1,20 +1,15 @@
 package com.example.experiments.model.Item;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-public class ConsumableItemService implements ItemService {
+public class ConsumableItem implements Item {
     private String name;
     private String category;
     private Double price;
 
-    private Logger log = LoggerFactory.getLogger(ConsumableItemService.class);
-
-    public ConsumableItemService() {
+    public ConsumableItem() {
         this.category = "Consumable";
     }
 
-    public ConsumableItemService(String name, Double price) {
+    public ConsumableItem(String name, Double price) {
         this(); // constructor chaining
         this.name = name;
         this.price = price;

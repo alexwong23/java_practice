@@ -2,8 +2,7 @@ package com.example.experiments;
 
 import com.example.experiments.model.Account.Account;
 import com.example.experiments.model.Account.Admin;
-import com.example.experiments.model.Account.User;
-import com.example.experiments.model.Item.ItemService;
+import com.example.experiments.model.Item.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -34,23 +33,19 @@ public class SpringBootApplication {
 			Account admin = appContext.getBean("admin", Account.class);
 			log.info(String.valueOf(admin));
 
-			// retrieve configured instance
-			Account user = appContext.getBean("user", Account.class);
-			log.info(String.valueOf(user));
-
 			// default item category is Decor
-			ItemService defaultItem = context.getBean(ItemService.class);
+			Item defaultItem = context.getBean(Item.class);
 			log.info(String.valueOf(defaultItem));
 
 			// create and configure beans
 			appContext = new ClassPathXmlApplicationContext("file:src/main/resources/beans/items.xml");
 
 			// retrieve configured instance
-			ItemService consumableItem = appContext.getBean("consumableItem", ItemService.class);
+			Item consumableItem = appContext.getBean("consumableItem", Item.class);
 			log.info(String.valueOf(consumableItem));
 
 			// retrieve configured instance
-			ItemService decorItem = appContext.getBean("decorItem", ItemService.class);
+			Item decorItem = appContext.getBean("decorItem", Item.class);
 			log.info(String.valueOf(decorItem));
 		} catch(Exception e) {
 			log.info("An error occurred in the application: " + e.getMessage());

@@ -1,6 +1,6 @@
 package com.example.experiments.model.Item;
 
-public interface ItemService {
+public interface Item {
     public String getName();
     public String getCategory();
     public Double getPrice();
