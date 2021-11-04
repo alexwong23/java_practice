@@ -20,6 +20,7 @@
     <property name="email" value="user2@gmail.com"></property>
     <property name="firstName" value="Alex"></property>
     <property name="lastName" value="Wong"></property>
+<!--    TODO: parse dateString as LocalDate -->
 <!--    <property name="dob">-->
 <!--      <bean factory-bean="dateFormatter" factory-method="parse">-->
 <!--        <constructor-arg value="2009-12-23" />-->

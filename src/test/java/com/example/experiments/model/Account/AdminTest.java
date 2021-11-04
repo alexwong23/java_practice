@@ -1,4 +1,4 @@
-package com.example.experiments.service.Account;
+package com.example.experiments.model.Account;
 
 import com.example.experiments.model.Account.Admin;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 // Using JUNIT 5 assertThrows method
-class AdminModelTest {
+class AdminTest {
 
     private Admin admin;
 
