@@ -1,55 +1,51 @@
 package com.example.experiments.service.Account;
 
+import com.example.experiments.model.Account.Admin;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 // Using JUNIT 5 assertThrows method
-class AdminServiceTest {
+class AdminModelTest {
 
-    private AdminService adminService;
+    private Admin admin;
 
     @BeforeEach
     void setUp() {
-        adminService = new AdminService("Alex", "unsafePassword");
-        adminService.setId("2f2f");
-    }
-
-    @Test
-    void TestGetId_CaseSensitive_ShouldFail() {
-        assertNotEquals(adminService.getId(), "2F2F");
+        admin = new Admin("Alex", "unsafePassword");
+        admin.setId(2222L);
     }
 
     @Test
     void TestGetId_Valid_ShouldPass() {
-        assertEquals(adminService.getId(), "2f2f");
+        assertEquals(admin.getId(), 2222L);
     }
 
     @Test
     void TestGetUsername_CaseSensitive_ShouldFail() {
-        assertNotEquals(adminService.getUsername(), "alex");
+        assertNotEquals(admin.getUsername(), "alex");
     }
 
     @Test
     void TestGetUsername_Valid_ShouldPass() {
-        assertEquals(adminService.getUsername(), "Alex");
+        assertEquals(admin.getUsername(), "Alex");
     }
 
     @Test
     void TestGetPassword_CaseSensitive_ShouldFail() {
-        assertNotEquals(adminService.getPassword(), "UnsafePassword");
+        assertNotEquals(admin.getPassword(), "UnsafePassword");
     }
 
     @Test
     void TestGetPassword_Valid_ShouldPass() {
-        assertEquals(adminService.getPassword(), "unsafePassword");
+        assertEquals(admin.getPassword(), "unsafePassword");
     }
 
     @Test()
     public void TestSetId_NullId_ShouldThrowException() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            adminService.setId(null);
+            admin.setId(null);
         });
         assertEquals(exception.getMessage(), "Error: Id cannot be set to Null");
     }
@@ -57,7 +53,7 @@ class AdminServiceTest {
     @Test
     void TestSetId_NegativeId_ShouldThrowException() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            adminService.setId("-2");
+            admin.setId(-2222L);
         });
         assertEquals(exception.getMessage(), "Error: Id cannot be negative");
     }
@@ -68,21 +64,21 @@ class AdminServiceTest {
 //    }
 
     @Test
-    void TestSetId_IdHyphen_ShouldPass() {
-        adminService.setId("3-a2");
-        assertEquals(adminService.getId(), "3-a2");
+    void TestSetId_IdZero_ShouldPass() {
+        admin.setId(0L);
+        assertEquals(admin.getId(), 0L);
     }
 
     @Test
     void TestSetId_ValidId_ShouldPass() {
-        adminService.setId("22");
-        assertEquals(adminService.getId(), "22");
+        admin.setId(999L);
+        assertEquals(admin.getId(), 999L);
     }
 
     @Test
     void TestSetUsername_Null_ShouldThrowException() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            adminService.setUsername(null);
+            admin.setUsername(null);
         });
         assertEquals(exception.getMessage(), "Error: Username cannot be set to Null");
     }
@@ -94,21 +90,21 @@ class AdminServiceTest {
 
     @Test
     void TestSetUsername_Valid_ShouldPass() {
-        adminService.setUsername("Ericcccccc");
-        assertEquals(adminService.getUsername(), "Ericcccccc");
+        admin.setUsername("Ericcccccc");
+        assertEquals(admin.getUsername(), "Ericcccccc");
     }
 
     @Test
     void TestSetPassword_Null_ShouldThrowException() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            adminService.setPassword(null);
+            admin.setPassword(null);
         });
         assertEquals(exception.getMessage(), "Error: Password cannot be set to Null");
     }
 
     @Test
     void TestSetPassword_Valid_ShouldPass() {
-        adminService.setPassword("helloWorld");
-        assertEquals(adminService.getPassword(), "helloWorld");
+        admin.setPassword("helloWorld");
+        assertEquals(admin.getPassword(), "helloWorld");
     }
 }

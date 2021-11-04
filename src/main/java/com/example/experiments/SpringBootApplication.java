@@ -1,8 +1,9 @@
 package com.example.experiments;
 
-import com.example.experiments.service.Account.AccountService;
-import com.example.experiments.service.Account.AdminService;
-import com.example.experiments.service.Item.ItemService;
+import com.example.experiments.model.Account.Account;
+import com.example.experiments.model.Account.Admin;
+import com.example.experiments.model.Account.User;
+import com.example.experiments.model.Item.ItemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -10,10 +11,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+
 @org.springframework.boot.autoconfigure.SpringBootApplication
 public class SpringBootApplication {
 
-	public static Logger log = LoggerFactory.getLogger(AdminService.class);
+	public static Logger log = LoggerFactory.getLogger(Admin.class);
 
 	// command to run ./gradlew bootRun
 	public static void main(String[] args) {
@@ -22,18 +24,18 @@ public class SpringBootApplication {
 
 		try {
 			// default account type is User
-			AccountService defaultAccount = context.getBean(AccountService.class);
+			Account defaultAccount = context.getBean(Account.class);
 			log.info(String.valueOf(defaultAccount));
 
 			// create and configure beans
 			ApplicationContext appContext = new ClassPathXmlApplicationContext("file:src/main/resources/beans/accounts.xml");
 
 			// retrieve configured instance
-			AccountService admin = appContext.getBean("admin", AccountService.class);
+			Account admin = appContext.getBean("admin", Account.class);
 			log.info(String.valueOf(admin));
 
 			// retrieve configured instance
-			AccountService user = appContext.getBean("user", AccountService.class);
+			Account user = appContext.getBean("user", Account.class);
 			log.info(String.valueOf(user));
 
 			// default item category is Decor
@@ -56,5 +58,4 @@ public class SpringBootApplication {
 
 		log.info("-------------------End of Program-------------------");
 	}
-
 }

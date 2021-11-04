@@ -1,22 +1,14 @@
-package com.example.experiments.service.Account;
+package com.example.experiments.model.Account;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-public class AdminService implements AccountService {
-    private String id;
+public class Admin implements Account {
+    private Long id;
     private String username;
     private String password;
 
-    private Logger log = LoggerFactory.getLogger(AdminService.class);
-
     // TODO: generate admin id
-    public AdminService() {
-        this.id = "1a";
-    }
+    public Admin() { }
 
-    public AdminService(String username, String password) {
-        this();
+    public Admin(String username, String password) {
         this.username = username;
         this.password = password;
     }
@@ -27,12 +19,12 @@ public class AdminService implements AccountService {
                 "\nPassword: " + this.password;
     }
 
-    public String getId() { return this.id; }
+    public Long getId() { return this.id; }
     public String getUsername() { return this.username; }
     public String getPassword() { return this.password; }
-    public void setId(String id) {
+    public void setId(Long id) {
         if(id == null) throw new IllegalArgumentException("Error: Id cannot be set to Null");
-        if(id.charAt(0) == '-') throw new IllegalArgumentException("Error: Id cannot be negative");
+        if(id < 0) throw new IllegalArgumentException("Error: Id cannot be negative");
         this.id = id;
     }
     public void setUsername(String username) {

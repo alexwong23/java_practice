@@ -1,7 +1,4 @@
-package com.example.experiments.service.Item;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.example.experiments.model.Item;
 
 public class DecorItemService implements ItemService {
     private String name;

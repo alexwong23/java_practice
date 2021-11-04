@@ -1,4 +1,4 @@
-package com.example.experiments.service.Item;
+package com.example.experiments.model.Item;
 
 public interface ItemService {
     public String getName();
