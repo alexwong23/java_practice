@@ -1,16 +1,15 @@
 package com.example.experiments;
 
-import com.example.experiments.model.Student;
+import com.example.experiments.model.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-
 @org.springframework.boot.autoconfigure.SpringBootApplication
 public class SpringBootApplication {
 
-	public static Logger log = LoggerFactory.getLogger(Student.class);
+	public static Logger log = LoggerFactory.getLogger(Employee.class);
 
 	// command to run ./gradlew bootRun
 	public static void main(String[] args) {
@@ -19,7 +18,7 @@ public class SpringBootApplication {
 
 		ConfigurableApplicationContext context = SpringApplication.run(SpringBootApplication.class, args);
 
-		Student james = new Student("James", "Soh", 24);
+		Employee james = new Employee("James", "Soh", 24, 10000.99);
 
 		log.info(String.valueOf(james));
 
