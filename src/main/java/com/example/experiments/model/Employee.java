@@ -1,8 +1,9 @@
 package com.example.experiments.model;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
 
     private String firstName;
     private String lastName;
@@ -27,6 +28,7 @@ public class Employee {
     }
 
     // TODO: what else do I have to understand about equals method
+    // remember argument takes object!
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -44,7 +46,12 @@ public class Employee {
         return Objects.hash(firstName, lastName, age, salary);
     }
 
-    // TODO: how to create multiple comparators
+    // sort by two fields age and then first name
+    public int compareTo(Employee e) {
+        int diff = this.age - e.age;
+        if(diff != 0) return diff;
+        return this.getFirstName().compareTo(e.getFirstName());
+    }
 
     public String getFirstName() {
         return firstName;
@@ -78,3 +85,7 @@ public class Employee {
         this.salary = salary;
     }
 }
+
+// Create multiple comparators
+// 1. FirstLastNameCompare
+// 2. SalaryCompare
