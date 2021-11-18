@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class InterviewOneListTest {
 
-    public static Logger log = LoggerFactory.getLogger(Employee.class);
+    public static Logger log = LoggerFactory.getLogger(InterviewOne.class);
     private InterviewOneUsingList interviewOneList;
     private List<Integer> integers;
 

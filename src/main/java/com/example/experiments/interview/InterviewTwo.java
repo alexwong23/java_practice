@@ -19,8 +19,9 @@ class Person {
     private int age;
     public Person() {}
     public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
+        // call set methods to throw error
+        this.setName(name);
+        this.setAge(age);
     }
 
     @Override
@@ -38,9 +39,13 @@ class Person {
         return this.age;
     }
     public void setName(String name) {
+        if(name == null) throw new IllegalArgumentException("Error: Person name cannot be null");
         this.name = name;
     }
     public void setAge(int age) {
+        if(age < 0) throw new IllegalArgumentException("Error: Person age must be positive");
+        else if(age == 0) throw new IllegalArgumentException("Error: Person age cannot be zero");
+        else if(age > 100) throw new IllegalArgumentException("Error: Person cannot be above 100 years old");
         this.age = age;
     }
 }

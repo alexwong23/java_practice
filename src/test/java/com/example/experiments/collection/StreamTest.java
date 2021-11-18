@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// TODO: what are streams? get the definition and use case, benefits too
 public class StreamTest {
 
     public static Logger log = LoggerFactory.getLogger(Employee.class);

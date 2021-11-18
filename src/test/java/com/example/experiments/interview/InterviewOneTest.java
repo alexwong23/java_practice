@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class InterviewOneTest {
 
-    public static Logger log = LoggerFactory.getLogger(Employee.class);
+    public static Logger log = LoggerFactory.getLogger(InterviewOne.class);
     private InterviewOne interviewOne;
     private int[] integers;
 
