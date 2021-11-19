@@ -1,4 +1,4 @@
-package com.example.experiments.collection;
+package com.example.experiments.collection.list;
 
 import com.example.experiments.model.Employee;
 import com.example.experiments.model.FirstLastNameCompare;
@@ -53,8 +53,6 @@ public class ArrayListTest {
         assertEquals("[4, 3, 7, 0, 1]", String.valueOf(integerArrayList));
         assertEquals(String.valueOf(finalEmployees), "[Employee{firstName='Shatyam', lastName='Thee', age=24, salary=9988.23}, Employee{firstName='James', lastName='Soh', age=24, salary=10000.99}, Employee{firstName='Derian', lastName='Tan', age=26, salary=15500.23}, Employee{firstName='James', lastName='Bond', age=19, salary=0.0}]");
     }
-
-
 
     @Test
     public void TestEmployeeEquals_ShouldFail() {
@@ -115,7 +113,6 @@ public class ArrayListTest {
         Collections.sort(employees);
         assertEquals(List.of(jamesw, james, shat, derian), employees);
     }
-
 
     @Test
     public void TestEmployeeSortFirstLastNameAsc_ShouldPass() {

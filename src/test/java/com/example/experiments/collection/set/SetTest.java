@@ -1,4 +1,4 @@
-package com.example.experiments.collection;
+package com.example.experiments.collection.set;
 
 import com.example.experiments.interview.InterviewThree;
 import org.junit.jupiter.api.BeforeAll;

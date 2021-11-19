@@ -1,4 +1,4 @@
-package com.example.experiments.collection;
+package com.example.experiments.collection.list;
 
 import com.example.experiments.model.Employee;
 import org.junit.jupiter.api.BeforeEach;
