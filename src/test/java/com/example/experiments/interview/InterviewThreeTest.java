@@ -1,6 +1,7 @@
 package com.example.experiments.interview;
 
 import com.example.experiments.model.Employee;
+import com.example.experiments.model.FirstLastNameCompare;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,9 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class InterviewThreeTest {
@@ -59,6 +58,25 @@ public class InterviewThreeTest {
         assertEquals(groupedByAnagramList.getGroupByIndex(1).toString(), "[tan, nat]");
         assertEquals(groupedByAnagramList.getGroupByIndex(2).toString(), "[bat]");
         log.info(groupedByAnagramList.toString());
+    }
+
+    // TODO: problem statement 2
+    //     Given a list of unique names
+    //     Return value in ascending order
+    @Test
+    public void TestUniqueNames_TreeSet_ShouldPass() {
+        employees.add(new Employee("James", "Bond", 22, 1000000.0)); // add a duplicate employee to test uniqueness
+        List<String> employeeNames = employees.stream()
+                .map(p -> p.getFirstName() + " " + p.getLastName())
+                .collect(Collectors.toList());
+        assertEquals(employeeNames.toString(), "[Shatyam Thee, James Soh, Derian Tan, James Bond, James Bond]");
+
+        Set<Employee> uniqueEmployees = new TreeSet<Employee>(new FirstLastNameCompare());
+        uniqueEmployees.addAll(employees);
+        List<String> uniqueNames = uniqueEmployees.stream()
+                .map(p -> p.getFirstName() + " " + p.getLastName())
+                .collect(Collectors.toList());
+        assertEquals(uniqueNames.toString(), "[Derian Tan, James Bond, James Soh, Shatyam Thee]");
     }
 
     // TODO: problem statement 3

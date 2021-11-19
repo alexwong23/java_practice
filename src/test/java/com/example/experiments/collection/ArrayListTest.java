@@ -137,8 +137,8 @@ public class ArrayListTest {
 
     }
 
-    // theory
-    // Printing array of primitives - Array.toString()
-    // Printing array of objects - String.valueOf() and override toString()
+    // note: Printing array of primitives vs objects
+    //  Array of primitives - Array.toString()
+    //  Array of objects - String.valueOf() and override toString()
 
 }

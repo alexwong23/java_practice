@@ -28,7 +28,7 @@ public class Employee implements Comparable<Employee> {
     }
 
     // TODO: what else do I have to understand about equals method
-    // remember argument takes object!
+    // NOTE: argument is an object!
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -1,6 +1,5 @@
 package com.example.experiments.interview;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -29,7 +28,7 @@ public class PersonTest {
         assertEquals(person.getAge(), 24);
     }
 
-    // Using JUNIT 5 assertThrows method
+    // NOTE: Using JUNIT 5 assertThrows method
     @Test()
     public void TestPersonSetName_Null_ShouldThrowException() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {

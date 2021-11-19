@@ -19,8 +19,6 @@ public class InterviewOne {
     //        Output: [24,12,8,6]
 
     public int[] multiply() {
-        //        List.of(this.integers).stream()
-        //                .reduce(1, (partial, num) -> partial * num);
         int total = 1;
         int numZeroes = 0;
         int indexZero = 0;

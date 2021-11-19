@@ -37,7 +37,6 @@ public class InterviewThreeUsingList {
         }
     }
 
-    // TODO: note how to split String into chars
     public String sortByAlphabets(String word) {
         char[] chars = word.toCharArray();
         Arrays.sort(chars);

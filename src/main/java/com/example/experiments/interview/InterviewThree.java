@@ -29,7 +29,7 @@ public class InterviewThree {
         }
     }
 
-    // TODO: note how to split String into chars
+    // NOTE: how to split String into chars
     public String sortByAlphabets(String word) {
         char[] chars = word.toCharArray();
         Arrays.sort(chars);
@@ -54,13 +54,10 @@ public class InterviewThree {
     }
 }
 
-class UniqueNames {
-    // TODO: problem statement 2
-    //     Given a list of unique names
-    //     Return value in ascending order
-    //     what collections to use?
-    //     hashset vs treeset??
-}
+// TODO: problem statement 2
+//     Given a list of unique names
+//     Return value in ascending order
+
 
 // TODO: problem statement 3
 //     Given a collection of employees (id, name salary)
@@ -93,9 +90,9 @@ class EmployeeSalaryCompare implements Comparator<Employee> {
 //		    Write an SQL query to return the
 //		    total number of employees in each dept
 //		     ordered by number of employees in desc order
-//		Answer:
-//		// SELECT d.Name, COUNT(e.id) num_emps
-//		// FROM Employee e, Department d JOIN ON e.deptid=d.id
-//		// GROUP BY d.name
-//		// HAVING COUNT(e.id)
-//		// ORDER BY num_emps DESC;
+//  Answer:
+//	SELECT d.Name, COUNT(e.id) num_emps
+//	FROM Employee e, Department d JOIN ON e.deptid=d.id
+//	GROUP BY d.name
+//	HAVING COUNT(e.id)
+//	ORDER BY num_emps DESC;

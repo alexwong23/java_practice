@@ -19,7 +19,7 @@ class Person {
     private int age;
     public Person() {}
     public Person(String name, int age) {
-        // call set methods to throw error
+        // NOTE: call set methods to throw error
         this.setName(name);
         this.setAge(age);
     }
