@@ -24,12 +24,26 @@ class Person {
         this.setAge(age);
     }
 
+    // NOTE: all objects have these two methods: equals() and hashCode()
+
+    // NOTE:
+    //  1. argument is an object!
+    //  2. by default, compares object reference
+    //  3. compares values of object
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
         return age == person.age && Objects.equals(name, person.name);
+    }
+
+    // NOTE:
+    //  1. returns integer hashcode value of given object
+    //  2. returns same hash value when two objects are equal according to method equal()
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
     }
 
     public String getName() {

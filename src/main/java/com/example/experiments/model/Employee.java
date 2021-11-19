@@ -27,8 +27,6 @@ public class Employee implements Comparable<Employee> {
                 '}';
     }
 
-    // TODO: what else do I have to understand about equals method
-    // NOTE: argument is an object!
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -40,7 +38,6 @@ public class Employee implements Comparable<Employee> {
                 salary.equals(employee.salary);
     }
 
-    // TODO: what is hashcode used for?
     @Override
     public int hashCode() {
         return Objects.hash(firstName, lastName, age, salary);
@@ -67,6 +64,10 @@ public class Employee implements Comparable<Employee> {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
     }
 
     public Integer getAge() {

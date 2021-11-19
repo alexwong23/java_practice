@@ -39,7 +39,7 @@ public class PersonTest {
 
     @Test()
     public void TestPersonSetAge_One_ShouldPass() {
-        person.setAge(100);
+        person.setAge(1);
         assertEquals(person.getAge(), 1);
     }
 
@@ -71,5 +71,29 @@ public class PersonTest {
             person.setAge(101);
         });
         assertEquals(exception.getMessage(), "Error: Person cannot be above 100 years old");
+    }
+
+    @Test
+    public void TestPerson_DifferentPeople_ShouldFail() {
+        Person p1 = new Person("Alex", 27);
+        Person p2 = new Person("Chloe", 25);
+        assertFalse(p1.equals(p2));
+        assertFalse(p1.hashCode() == p2.hashCode());
+    }
+
+    @Test
+    public void TestPerson_SameName_ShouldFail() {
+        Person p1 = new Person("Alex", 27);
+        Person p2 = new Person("Alex", 25);
+        assertFalse(p1.equals(p2));
+        assertFalse(p1.hashCode() == p2.hashCode());
+    }
+
+    @Test
+    public void TestPerson_SamePerson_ShouldPass() {
+        Person p1 = new Person("Alex", 27);
+        Person p2 = new Person("Alex", 27);
+        assertTrue(p1.equals(p2));
+        assertTrue(p1.hashCode() == p2.hashCode());
     }
 }
