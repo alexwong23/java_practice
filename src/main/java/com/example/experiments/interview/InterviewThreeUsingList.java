@@ -19,21 +19,7 @@ public class InterviewThreeUsingList {
     public InterviewThreeUsingList(List<String> words) {
         groupedByAnagram = new ArrayList<>();
         for (String word: words) {
-            if(groupedByAnagram.size() < 1) // add first word
-                groupedByAnagram.add(new ArrayList<>(List.of(word)));
-            boolean foundGroup = false;
-            for(int i = 0; i < groupedByAnagram.size(); i++) {
-                String sortedWord = this.sortByAlphabets(word);
-                String sortedGroup = this.sortByAlphabets(groupedByAnagram.get(i).get(0));
-                if(sortedWord.equals(sortedGroup)) { // group found
-                    foundGroup = true;
-                    if(!groupedByAnagram.get(i).contains(word)) // add new word if not in group
-                        groupedByAnagram.get(i).add(word);
-                    break; // no need to iterate through other groups
-                }
-            }
-            if(!foundGroup) // create new group since no group found
-                groupedByAnagram.add(new ArrayList<>(List.of(word)));
+            // TODO: extra challenge
         }
     }
 

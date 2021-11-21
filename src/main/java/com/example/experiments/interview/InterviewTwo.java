@@ -15,11 +15,12 @@ public class InterviewTwo {
 }
 
 class Person {
-    private String name;
-    private int age;
+
+    // TODO: write private variables;
+
     public Person() {}
     public Person(String name, int age) {
-        // NOTE: call set methods to throw error
+        // NOTE: call set methods to throw error, not sure if good practice
         this.setName(name);
         this.setAge(age);
     }
@@ -32,10 +33,7 @@ class Person {
     //  3. compares values of object
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return age == person.age && Objects.equals(name, person.name);
+        // TODO:
     }
 
     // NOTE:
@@ -53,13 +51,15 @@ class Person {
         return this.age;
     }
     public void setName(String name) {
-        if(name == null) throw new IllegalArgumentException("Error: Person name cannot be null");
+        // TODO:
+        if(// TODO: ) throw new IllegalArgumentException("Error: Person name cannot be null");
         this.name = name;
     }
     public void setAge(int age) {
-        if(age < 0) throw new IllegalArgumentException("Error: Person age must be positive");
-        else if(age == 0) throw new IllegalArgumentException("Error: Person age cannot be zero");
-        else if(age > 100) throw new IllegalArgumentException("Error: Person cannot be above 100 years old");
+        // TODO:
+        if() throw new IllegalArgumentException("Error: Person age must be positive");
+        else if() throw new IllegalArgumentException("Error: Person age cannot be zero");
+        else if() throw new IllegalArgumentException("Error: Person cannot be above 100 years old");
         this.age = age;
     }
 }

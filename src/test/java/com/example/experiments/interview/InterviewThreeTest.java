@@ -65,13 +65,15 @@ public class InterviewThreeTest {
     //     Return value in ascending order
     @Test
     public void TestUniqueNames_TreeSet_ShouldPass() {
-        employees.add(new Employee("James", "Bond", 22, 1000000.0)); // add a duplicate employee to test uniqueness
+        // add a duplicate employee to test uniqueness
+        employees.add(new Employee("James", "Bond", 22, 1000000.0));
         List<String> employeeNames = employees.stream()
                 .map(p -> p.getFirstName() + " " + p.getLastName())
                 .collect(Collectors.toList());
         assertEquals(employeeNames.toString(), "[Shatyam Thee, James Soh, Derian Tan, James Bond, James Bond]");
 
-        Set<Employee> uniqueEmployees = new TreeSet<Employee>(new FirstLastNameCompare());
+        // TODO:
+        ???<Employee> uniqueEmployees =
         uniqueEmployees.addAll(employees);
         List<String> uniqueNames = uniqueEmployees.stream()
                 .map(p -> p.getFirstName() + " " + p.getLastName())
@@ -86,8 +88,9 @@ public class InterviewThreeTest {
 
     @Test
     public void TestEmployee_AgeCompare_ShouldPass() {
-        EmployeeAgeCompare employeeAgeCompare = new EmployeeAgeCompare();
-        Collections.sort(employees, employeeAgeCompare);
+        // TODO:
+
+        Collections.sort(employees, ???);
         List<String> names = employees.stream()
                 .map(p -> p.getFirstName() + " " + p.getLastName())
                 .collect(Collectors.toList());
@@ -96,8 +99,9 @@ public class InterviewThreeTest {
 
     @Test
     public void TestEmployee_SalaryCompare_ShouldPass() {
-        EmployeeSalaryCompare employeeSalaryCompare = new EmployeeSalaryCompare();
-        Collections.sort(employees, employeeSalaryCompare);
+        // TODO:
+
+        Collections.sort(employees, ???);
         List<String> names = employees.stream()
                 .map(p -> p.getFirstName() + " " + p.getLastName())
                 .collect(Collectors.toList());

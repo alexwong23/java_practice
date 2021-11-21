@@ -31,9 +31,8 @@ public class PersonTest {
     // NOTE: Using JUNIT 5 assertThrows method
     @Test()
     public void TestPersonSetName_Null_ShouldThrowException() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            person.setName(null);
-        });
+        // TODO:
+        Exception exception =
         assertEquals(exception.getMessage(), "Error: Person name cannot be null");
     }
 
@@ -51,25 +50,22 @@ public class PersonTest {
 
     @Test()
     public void TestPersonSetAge_Zero_ShouldThrowException() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            person.setAge(0);
-        });
+        // TODO:
+        Exception exception =
         assertEquals(exception.getMessage(), "Error: Person age cannot be zero");
     }
 
     @Test()
     public void TestPersonSetAge_Negative_ShouldThrowException() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            person.setAge(-1);
-        });
+        // TODO:
+        Exception exception =
         assertEquals(exception.getMessage(), "Error: Person age must be positive");
     }
 
     @Test()
     public void TestPersonSetAge_AboveHundred_ShouldThrowException() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            person.setAge(101);
-        });
+        // TODO:
+        Exception exception =
         assertEquals(exception.getMessage(), "Error: Person cannot be above 100 years old");
     }
 
@@ -78,7 +74,7 @@ public class PersonTest {
         Person p1 = new Person("Alex", 27);
         Person p2 = new Person("Chloe", 25);
         assertFalse(p1.equals(p2));
-        assertFalse(p1.hashCode() == p2.hashCode());
+        assertFalse( ); // TODO: use hashcode
     }
 
     @Test
@@ -86,7 +82,7 @@ public class PersonTest {
         Person p1 = new Person("Alex", 27);
         Person p2 = new Person("Alex", 25);
         assertFalse(p1.equals(p2));
-        assertFalse(p1.hashCode() == p2.hashCode());
+        assertFalse(); // TODO: use hashcode
     }
 
     @Test
@@ -94,6 +90,6 @@ public class PersonTest {
         Person p1 = new Person("Alex", 27);
         Person p2 = new Person("Alex", 27);
         assertTrue(p1.equals(p2));
-        assertTrue(p1.hashCode() == p2.hashCode());
+        assertTrue(); // TODO: use hashcode
     }
 }
