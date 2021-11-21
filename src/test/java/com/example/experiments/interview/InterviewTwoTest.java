@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,7 +20,6 @@ public class InterviewTwoTest {
     //        5. Write test cases
 
     private List<Person> people;
-    private static List<Person> predefinedPeople;
     private static Person james, josh, alex, underage, youngling;
 
     @BeforeAll
@@ -29,35 +29,27 @@ public class InterviewTwoTest {
         josh = new Person("Josh", 25);
         youngling = new Person("Youngling", 18);
         alex = new Person("Alex", 27);
-        predefinedPeople = new ArrayList<Person>(
-                List.of(james, josh, alex)
-        );
     }
 
     @BeforeEach
     public void Setup() {
-        people = new ArrayList<Person>();
+        people = new ArrayList<Person>(
+                List.of(james, underage, josh, youngling, alex));
     }
 
     @Test
-    public void TestPersonAdd_ShouldFail() {
-        people.add(new Person("Chloe", 99));
-        assertFalse(people.size() > 1);
-        assertFalse(people.get(0).equals(new Person("Chloe", 98)) );
+    public void TestPerson_Find18Above_ShouldPass() {
+        List<Person> adults = people.stream()
+                .filter(p -> p.getAge() > 18)
+                .collect(Collectors.toList());
+        assertTrue(adults.equals(List.of(james, josh, alex)));
     }
 
     @Test
     public void TestPersonAdd_ShouldPass() {
-        people.add(new Person("Chloe", 99));
-        assertEquals(people.size(), 1);
-        assertTrue(people.get(0).equals(new Person("Chloe", 99)) );
-    }
-
-    @Test
-    public void TestPersonSetAge_ShouldPass() {
-        people.add(new Person("Chloe", 99));
-        assertEquals(people.size(), 1);
-        assertTrue(people.get(0).equals(new Person("Chloe", 99)) );
+        Person chloe = new Person("Chloe", 99);
+        people.add(chloe);
+        assertTrue(people.contains(chloe));
     }
 
     @Test
@@ -66,33 +58,36 @@ public class InterviewTwoTest {
             people.add(new Person(null, 99));
         });
         assertEquals(exception.getMessage(), "Error: Person name cannot be null");
-        assertEquals(people.size(), 0);
+        assertEquals(people.size(), 5);
     }
 
-    // edge case - age 1 and 100
-    // boundary case - age 0, 101, and negative
-
     @Test
+    public void TestPersonSetAge_ShouldPass() {
+        people.get(0).setAge(88);
+        assertTrue(people.get(0).getAge() == 88);
+    }
+
+    @Test // NOTE: edge case - age 1 and 100
     public void TestPersonSetAge_One_ShouldPass() {
-        people.add(new Person("Chloe", 1));
-        assertTrue(people.get(0).equals(new Person("Chloe", 1)));
-        assertEquals(people.size(), 1);
+        Person chloe = new Person("Chloe", 1);
+        people.add(chloe);
+        assertTrue(people.contains(chloe));
     }
 
     @Test
     public void TestPersonSetAge_Hundred_ShouldPass() {
-        people.add(new Person("Chloe", 100));
-        assertTrue(people.get(0).equals(new Person("Chloe", 100)));
-        assertEquals(people.size(), 1);
+        Person chloe = new Person("Chloe", 100);
+        people.add(chloe);
+        assertTrue(people.contains(chloe));
     }
 
-    @Test
+    @Test // NOTE: boundary case - age 0, 101, and negative
     public void TestPersonSetAge_Zero_ShouldThrowException() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             people.add(new Person("Alex", 0));
         });
         assertEquals(exception.getMessage(), "Error: Person age cannot be zero");
-        assertEquals(people.size(), 0);
+        assertEquals(people.size(), 5);
     }
 
     public void TestPersonSetAge_HundredOne_ShouldThrowException() {
@@ -100,7 +95,7 @@ public class InterviewTwoTest {
             people.add(new Person("Alex", 101));
         });
         assertEquals(exception.getMessage(), "Error: Person cannot be above 100 years old");
-        assertEquals(people.size(), 0);
+        assertEquals(people.size(), 5);
     }
 
     @Test
@@ -109,6 +104,6 @@ public class InterviewTwoTest {
             people.add(new Person("Alex", -1));
         });
         assertEquals(exception.getMessage(), "Error: Person age must be positive");
-        assertEquals(people.size(), 0);
+        assertEquals(people.size(), 5);
     }
 }
