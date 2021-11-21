@@ -20,6 +20,9 @@ public class SerializableTest {
         employee = new Employee("Chole", "Chau", 18, 9000.00);
     }
 
+    // NOTE:
+    //  writing the state of an object into a byte-stream
+    //  travel object's state on the network
     @Test
     public void TestWriteObject_ShouldPass() throws IOException {
         FileOutputStream fout = new FileOutputStream(fileName);
