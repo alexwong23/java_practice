@@ -1,14 +1,15 @@
 package com.example.experiments.model;
 
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Objects;
 
-public class Employee implements Comparable<Employee> {
+public class Employee implements Comparable<Employee>, Serializable {
 
     private String firstName;
     private String lastName;
     private Integer age;
-    private Double salary;
+    transient private Double salary;
 
     public Employee(String firstName, String lastName, Integer age, Double salary) {
         this.firstName = firstName;
