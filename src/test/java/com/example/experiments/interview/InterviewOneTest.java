@@ -19,19 +19,19 @@ public class InterviewOneTest {
 //    Output: [24,12,8,6]
 //
 //    Input:  [1,-2,3,-4]
-//    Output:  [24,-12,8,-6]
+//    Output:  [ , , , ]  // TODO:
 //
 //    Input:  [0,2,3,4]
 //    Output: [24,0,0,0]
 //
 //    Input:  [0,0,3,4]
-//    Output: [0,0,0,0]
+//    Output: [ , , , ]  // TODO:
 
     @Test
     public void TestMultiply_OutputLength_ShouldPass() {
         integers = new int[] { 1, 2, 3, 4 };
         interviewOne = new InterviewOne(integers);
-        assertEquals(interviewOne.multiply().length, 4);
+        assertEquals(, 4);  // TODO:
     }
 
     @Test
@@ -45,7 +45,7 @@ public class InterviewOneTest {
     public void TestMultiply_OutputNormalFive_ShouldPass() {
         integers = new int[] { 5, 6, 7, 8, 9 };
         interviewOne = new InterviewOne(integers);
-        assertEquals(interviewOne.multiply().length, 5);
+        assertEquals(, 5);  // TODO:
         assertEquals("[3024, 2520, 2160, 1890, 1680]", Arrays.toString(interviewOne.multiply()));
     }
 
@@ -53,14 +53,14 @@ public class InterviewOneTest {
     public void TestMultiply_Negative_ShouldPass() {
         integers = new int[] { 1, -2, 3, -4 };
         interviewOne = new InterviewOne(integers);
-        assertEquals("[24, -12, 8, -6]", Arrays.toString(interviewOne.multiply()));
+        assertEquals("[, , , ]", Arrays.toString(interviewOne.multiply()));  // TODO:
     }
 
     @Test
     public void TestMultiply_ManyZeroes_ShouldPass() {
         integers = new int[] { 0, 0, 3, 4 };
         interviewOne = new InterviewOne(integers);
-        assertEquals("[0, 0, 0, 0]", Arrays.toString(interviewOne.multiply()));
+        assertEquals("[, , , ]", Arrays.toString(interviewOne.multiply()));  // TODO:
     }
 
     @Test

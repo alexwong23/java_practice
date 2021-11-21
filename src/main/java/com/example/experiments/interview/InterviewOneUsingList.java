@@ -22,29 +22,9 @@ public class InterviewOneUsingList {
     //        Input:  [1,2,3,4]
     //        Output: [24,12,8,6]
 
+
     public List<Integer> multiply() {
-        int total = this.integers.stream()
-                .filter(p -> !(p == null || p == 0))
-                .reduce(1, (partial, num) -> partial * num);
-        long numZeroes = this.integers.stream()
-                .filter(p -> (p == null || p == 0))
-                .count();
-
-        List<Integer> result = new ArrayList<Integer>(
-                Arrays.asList(new Integer[this.integers.size()])
-        );
-        Collections.fill(result, 0); // dynamically set array of zeroes
-
-        if (numZeroes == 1) {
-            int zeroIndex = this.integers.indexOf(0);
-            result.set(zeroIndex, total);
-        } else if (numZeroes == 0) {
-            result.clear();
-            result.addAll(this.integers);
-            result = result.stream()
-                    .map(p -> p = (p == null || p == 0) ? 0 : total / p)
-                    .collect(Collectors.toList());
-        }
+        // TODO:
         return result;
     }
 

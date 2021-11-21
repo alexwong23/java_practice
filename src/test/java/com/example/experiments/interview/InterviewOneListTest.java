@@ -15,24 +15,11 @@ public class InterviewOneListTest {
     private InterviewOneUsingList interviewOneList;
     private List<Integer> integers;
 
-//    Multiply Examples:
-//    Input:  [1,2,3,4]
-//    Output: [24,12,8,6]
-//
-//    Input:  [1,-2,3,-4]
-//    Output:  [24,-12,8,-6]
-//
-//    Input:  [0,2,3,4]
-//    Output: [24,0,0,0]
-//
-//    Input:  [0,0,3,4]
-//    Output: [0,0,0,0]
-
     @Test
     public void TestMultiply_OutputLength_ShouldPass() {
         integers = new ArrayList<Integer>(List.of(1, 2, 3, 4));
         interviewOneList = new InterviewOneUsingList(integers);
-        assertEquals(interviewOneList.multiply().size(), 4);
+        assertEquals(, 4); // TODO:
     }
 
     @Test
@@ -46,7 +33,7 @@ public class InterviewOneListTest {
     public void TestMultiply_OutputNormalFive_ShouldPass() {
         integers = new ArrayList<Integer>(List.of(5, 6, 7, 8, 9));
         interviewOneList = new InterviewOneUsingList(integers);
-        assertEquals(interviewOneList.multiply().size(), 5);
+        assertEquals(, 5);  // TODO:
         assertEquals("[3024, 2520, 2160, 1890, 1680]", interviewOneList.multiply().toString());
     }
 
@@ -54,14 +41,14 @@ public class InterviewOneListTest {
     public void TestMultiply_Negative_ShouldPass() {
         integers = new ArrayList<Integer>(List.of(1, -2, 3, -4));
         interviewOneList = new InterviewOneUsingList(integers);
-        assertEquals("[24, -12, 8, -6]", interviewOneList.multiply().toString());
+        assertEquals("[, , , ]", interviewOneList.multiply().toString());  // TODO:
     }
 
     @Test
     public void TestMultiply_ManyZeroes_ShouldPass() {
         integers = new ArrayList<Integer>(List.of(0, 0, 3, 4));
         interviewOneList = new InterviewOneUsingList(integers);
-        assertEquals("[0, 0, 0, 0]", interviewOneList.multiply().toString());
+        assertEquals("[, , , ]", interviewOneList.multiply().toString()); // TODO:
     }
 
     @Test
