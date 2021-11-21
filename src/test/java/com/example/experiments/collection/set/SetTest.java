@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SetTest {
 
     public static Logger log = LoggerFactory.getLogger(InterviewThree.class);
-    private static int[] integers, integers2;
+    private static int[] integers, integers2, uniqueIntegers, sortedIntegers;
     private Set<Integer> example;
     private Set<Integer> integerHashSet;
     private Set<Integer> integerTreeSet;
@@ -24,6 +24,8 @@ public class SetTest {
     public static void Initialise() {
         integers = new int[] {77, 23, 4, 11, 69, 77, 112, 45, 23, 29, 23};
         integers2 = new int[] {29, 4, 11, 112, 45, 23, 69, 77, 29, 23};
+        uniqueIntegers = new int[] {77, 23, 4, 11, 69, 112, 45, 29};
+        sortedIntegers = new int[] {4, 11, 23, 29, 45, 69, 77, 112};
     }
 
     @BeforeEach
@@ -55,15 +57,24 @@ public class SetTest {
     }
 
     @Test
+    public void TestLinkedHashSet_ValueEquals_ShouldPass() {
+        assertTrue(integerLinkedHashSet.equals(example));
+    }
+
+    @Test
+    public void TestLinkedHashSet_OrderEquals_ShouldFail() {
+        assertEquals(integerLinkedHashSet.toString(), Arrays.toString(uniqueIntegers));
+    }
+
+    @Test
     public void TestTreeSet_ValueEquals_ShouldPass() {
         assertTrue(integerTreeSet.equals(example));
         assertEquals(integerTreeSet.toString(), "[4, 11, 23, 29, 45, 69, 77, 112]");
     }
 
     @Test
-    public void TestTreeSet_OrderEquals_ShouldFail() {
-        assertNotEquals(Arrays.toString(integers), integerTreeSet.toString());
-        assertNotEquals(integerTreeSet.toString(), example.toString());
+    public void TestTreeSet_OrderEquals_ShouldPass() {
+        assertEquals(Arrays.toString(sortedIntegers), integerTreeSet.toString());
         log.info("integerTreeSet" + integerTreeSet.toString());
     }
 
@@ -74,16 +85,6 @@ public class SetTest {
         });
         assertEquals(exception.getMessage(), null);
         assertTrue(integerTreeSet.equals(example));
-    }
-
-    @Test
-    public void TestLinkedHashSet_ValueEquals_ShouldPass() {
-        assertTrue(integerLinkedHashSet.equals(example));
-    }
-
-    @Test
-    public void TestLinkedHashSet_OrderEquals_ShouldPass() {
-        assertEquals(integerLinkedHashSet.toString(), "[77, 23, 4, 11, 69, 112, 45, 29]");
     }
 
 }

@@ -45,6 +45,9 @@ public class ArrayListTest {
         employees.clear();
     }
 
+    // NOTE: Printing array of primitives vs objects
+    //  Array of primitives - Array.toString()
+    //  Array of objects - String.valueOf() and override toString()
     @Test
     public void TestDifferentPrint_ShouldPass() {
         int[] integerArray = new int[] { 4, 3, 7, 0, 1 };
@@ -94,6 +97,8 @@ public class ArrayListTest {
         assertFalse(employees.contains(derian));
     }
 
+
+    // NOTE: contains && indexOf
     @Test
     public void TestEmployeeContainsAndIndexOf_ShouldPass() {
         assertTrue(employees.contains(jamesw));
@@ -114,6 +119,7 @@ public class ArrayListTest {
         assertEquals(List.of(jamesw, james, shat, derian), employees);
     }
 
+    // NOTE: Multiple comparators
     @Test
     public void TestEmployeeSortFirstLastNameAsc_ShouldPass() {
         // sort by two fields first name and last name
@@ -133,9 +139,5 @@ public class ArrayListTest {
     public void TestEmployeeBucketSortSalaryAsc_ShouldPass() {
 
     }
-
-    // note: Printing array of primitives vs objects
-    //  Array of primitives - Array.toString()
-    //  Array of objects - String.valueOf() and override toString()
 
 }

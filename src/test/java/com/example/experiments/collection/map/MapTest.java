@@ -1,6 +1,7 @@
 package com.example.experiments.collection.map;
 
 import com.example.experiments.model.Employee;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,91 +14,85 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MapTest {
 
-    // NOTE:
-    //  using equals and hashcode in conjunction with maps
-
+    // TODO: implement other maps like treemap and linkedhashmap?
     public static Logger log = LoggerFactory.getLogger(Employee.class);
-    private static Map<String, String> asiaHashMap, asiaHashMapTwo, diffHashMap;
-    private static Map<String, String[]> asiaArrayHashMap, asiaArrayHashMapTwo, diffArrayHashMap;
+    private static Map<String, String> asiaHashMap, asiaLinkedHashMap, asiaTreeMap;
 
     @BeforeAll
     public static void Initialise() {
-        asiaHashMap = new HashMap<String, String>();
-        asiaHashMap.put("South Korea", "Seoul");
-        asiaHashMap.put("Japan", "Tokyo");
-        asiaHashMapTwo = new HashMap<String, String>();
-        asiaHashMapTwo.put("Japan", "Tokyo");
-        asiaHashMapTwo.put("South Korea", "Seoul");
-        diffHashMap = new HashMap<String, String>();
-        diffHashMap.put("Japan", "Tokyo");
-        diffHashMap.put("South Korea", null);
-        asiaArrayHashMap = new HashMap<String, String[]>();
-        asiaArrayHashMap.put("South Korea", new String[] {"Seoul", "Busan"});
-        asiaArrayHashMap.put("Japan", new String[] {"Tokyo", "Osaka"});
-        asiaArrayHashMapTwo = new HashMap<String, String[]>();
-        asiaArrayHashMapTwo.put("South Korea", new String[] {"Seoul", "Busan"});
-        asiaArrayHashMapTwo.put("Japan", new String[] {"Tokyo", "Osaka"});
-        diffArrayHashMap = new HashMap<String, String[]>();
-        diffArrayHashMap.put("Japan", new String[] {"Tokyo", "Osaka"});
-        diffArrayHashMap.put("South Korea", new String[] {});
+        asiaHashMap = new HashMap<>();
+        asiaLinkedHashMap = new LinkedHashMap<>();
+        asiaTreeMap = new TreeMap<>();
     }
 
     @BeforeEach
     public void Setup() {
+        asiaHashMap.put("South Korea", "Seoul");
+        asiaHashMap.put("Japan", "Tokyo");
+        asiaHashMap.put("Singapore", null);
+        asiaLinkedHashMap.put("South Korea", "Seoul");
+        asiaLinkedHashMap.put("Japan", "Tokyo");
+        asiaLinkedHashMap.put("Singapore", null);
+        asiaTreeMap.put("South Korea", "Seoul");
+        asiaTreeMap.put("Japan", "Tokyo");
+        asiaTreeMap.put("Singapore", null);
+    }
 
+    @AfterEach
+    public void Breakdown() {
+        asiaHashMap.clear();
+        asiaLinkedHashMap.clear();
+        asiaTreeMap.clear();
+    }
+
+    @Test // NOTE: NO insertion order
+    public void TestHashMap_NoInsertOrder_ShouldFail() {
+        log.info("asiaHashMap=" + printMap(asiaHashMap));
+        assertNotEquals(asiaHashMap.keySet().toString(), "[South Korea, Japan, Singapore]");
+    }
+
+    @Test // NOTE: has insertion order
+    public void TestLinkedHashMap_InsertOrder_ShouldPass() {
+        log.info("asiaLinkedHashMap=" + printMap(asiaLinkedHashMap));
+        assertEquals(asiaLinkedHashMap.keySet().toString(), "[South Korea, Japan, Singapore]");
+    }
+
+    @Test // NOTE: elements sorted
+    public void TestTreeMap_Sorted_ShouldPass() {
+        log.info("asiaTreeMap=" + printMap(asiaTreeMap));
+        assertEquals(asiaTreeMap.keySet().toString(), "[Japan, Singapore, South Korea]");
     }
 
     @Test
-    public void TestHashMap_Equal_ShouldPass() {
-        assertTrue(asiaHashMap.equals(asiaHashMapTwo));
+    public void TestHashMap_Null_ShouldPass() {
+        asiaHashMap.put(null, null);
+        assertTrue(asiaHashMap.containsKey(null));
+        assertEquals(asiaHashMap.size(), 4);
     }
 
     @Test
-    public void TestHashMap_NotEqual_ShouldFail() {
-        assertFalse(asiaHashMap.equals(diffHashMap));
+    public void TestLinkedHashMap_Null_ShouldPass() {
+        asiaLinkedHashMap.put(null, null);
+        assertTrue(asiaLinkedHashMap.containsKey(null));
+        assertEquals(asiaLinkedHashMap.keySet().toString(), "[South Korea, Japan, Singapore, null]");
     }
 
     @Test
-    public void TestHashMap_EqualKeys_ShouldPass() {
-        assertTrue(asiaHashMap.keySet().equals(diffHashMap.keySet()));
+    public void TestTreeMap_NoNull_ShouldFail() {
+        Exception exception = assertThrows(NullPointerException.class, () -> {
+            asiaTreeMap.put(null, null);
+        });
+        assertEquals(exception.getMessage(), null);
+        assertEquals(asiaTreeMap.size(), 3);
     }
 
-    //NOTE:
-    // entryset(): return set view of <key, value> pairs
-    // keyset(): return set view of all keys
-    // values(): return collection view of all values
-
-    @Test
-    public void TestHashMap_EqualValues_ShouldPass() {
-        assertTrue(asiaHashMap.values().containsAll(asiaHashMapTwo.values()));
-    }
-
-    @Test
-    public void TestHashMapArray_NotEqual_ShouldFail() {
-        assertEquals(printHashMap(asiaArrayHashMap), printHashMap(asiaArrayHashMapTwo));
-        assertFalse(asiaArrayHashMap.equals(asiaArrayHashMapTwo)); // NOTE: compares reference of String[]
-    }
-
-    @Test
-    public void TestHashMapArray_Equal_ShouldPass() {
-        assertEquals(printHashMap(asiaArrayHashMap), printHashMap(asiaArrayHashMapTwo));
-        assertTrue(equalHashMap(asiaArrayHashMap, asiaArrayHashMapTwo));
-    }
-
-    public String printHashMap(Map<String, String[]> hashmap) {
+    public String printMap(Map<String, String> map) {
         StringBuilder sb = new StringBuilder();
-        for(String country: hashmap.keySet()) {
-            sb.append(country + "={");
-            sb.append(Arrays.toString(hashmap.get(country)));
-            sb.append("} ");
+        for(String country: map.keySet()) {
+            sb.append(country + ":");
+            sb.append(map.get(country));
+            sb.append(", ");
         }
         return sb.toString();
-    }
-
-    public boolean equalHashMap(Map<String, String[]> hm1, Map<String, String[]> hm2) {
-        if(hm1.size() != hm2.size()) return false;
-
-        return hm1.entrySet().stream()
-                .allMatch(p -> Arrays.equals(p.getValue(), hm2.get(p.getKey())));
     }
 }
