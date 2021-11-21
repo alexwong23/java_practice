@@ -10,9 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PersonTest {
 
-    // TODO: serializable??
-    //  https://www.javatpoint.com/serialization-in-java
-
     public static Logger log = LoggerFactory.getLogger(Person.class);
     private Person person;
 
