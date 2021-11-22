@@ -216,11 +216,8 @@ public class QueueTest {
         if(pq == null) return null;
         List<Employee> inOrder = new ArrayList<>();
         PriorityQueue<Employee> copyOf = new PriorityQueue<>(pq);
-        while(!copyOf.isEmpty()) {
-            inOrder.add(copyOf.poll());
-        }
-        return inOrder;
+        // TODO: using a while loop with isEmpty() condition, add elements using poll()
 
-        // TODO: challenge - try implementing using hasNext and peek
+        return inOrder;
     }
 }
