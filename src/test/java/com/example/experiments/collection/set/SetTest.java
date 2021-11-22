@@ -64,26 +64,26 @@ public class SetTest {
 
     @Test
     public void TestLinkedHashSet_OrderEquals_ShouldPass() {
-        assertEquals(integerLinkedHashSet.toString(), Arrays.toString(uniqueIntegers));
+        // TODO: compare integerLinkedHashSet String to insertion order
+        assertEquals(integerLinkedHashSet.toString(), );
     }
 
     @Test
     public void TestTreeSet_ValueEquals_ShouldPass() {
-        assertTrue(integerTreeSet.equals(example));
-        assertEquals(integerTreeSet.toString(), "[4, 11, 23, 29, 45, 69, 77, 112]");
+        // TODO: compare integerTreeSet to example
+        assertTrue( );
     }
 
     @Test
     public void TestTreeSet_OrderEquals_ShouldPass() {
-        assertEquals(Arrays.toString(sortedIntegers), integerTreeSet.toString());
-        log.info("integerTreeSet" + integerTreeSet.toString());
+        // TODO: compare integerTreeSet to sorted order
+        assertEquals(integerTreeSet.toString(), );
     }
 
     @Test
     public void TestTreeSet_AddNull_ShouldThrowException() {
-        Exception exception = assertThrows(NullPointerException.class, () -> {
-           integerTreeSet.add(null);
-        });
+        // TODO: treeSet add null throws NullPointerException
+        Exception exception =
         assertEquals(exception.getMessage(), null);
         assertTrue(integerTreeSet.equals(example));
     }
