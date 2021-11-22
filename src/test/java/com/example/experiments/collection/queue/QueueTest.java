@@ -22,9 +22,6 @@ public class QueueTest {
     private static List<Employee> finalEmployees;
     private static Employee derian, shat, james, jamesw, mo;
 
-    // TODO: concurrency?
-    //  one of its uses is multithreading, when a resource is shared among multiple consumers
-
     // getfirst() && getlast()
     // push() && pop()
     // add(): add to end of Queue, throws exception if full
