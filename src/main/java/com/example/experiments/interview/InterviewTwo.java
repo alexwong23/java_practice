@@ -52,7 +52,7 @@ class Person {
     }
     public void setName(String name) {
         // TODO:
-        if(// TODO: ) throw new IllegalArgumentException("Error: Person name cannot be null");
+        if( ) throw new IllegalArgumentException("Error: Person name cannot be null");
         this.name = name;
     }
     public void setAge(int age) {

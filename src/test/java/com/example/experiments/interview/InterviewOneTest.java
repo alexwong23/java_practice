@@ -17,15 +17,18 @@ public class InterviewOneTest {
 //    Multiply Examples:
 //    Input:  [1,2,3,4]
 //    Output: [24,12,8,6]
+
+//    TODO: what are the edge, corner and boundary cases?
+//      hint *answers are in the test names*
+
+//    Input:   [ , , , ]  // TODO:
+//    Output:  [ , , , ]
 //
-//    Input:  [1,-2,3,-4]
-//    Output:  [ , , , ]  // TODO:
+//    Input:  [ , , , ]  // TODO:
+//    Output: [ , , , ]
 //
-//    Input:  [0,2,3,4]
-//    Output: [24,0,0,0]
-//
-//    Input:  [0,0,3,4]
-//    Output: [ , , , ]  // TODO:
+//    Input:  [ , , , ]  // TODO:
+//    Output: [ , , , ]
 
     @Test
     public void TestMultiply_OutputLength_ShouldPass() {

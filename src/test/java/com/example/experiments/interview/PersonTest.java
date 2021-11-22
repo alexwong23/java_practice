@@ -20,53 +20,66 @@ public class PersonTest {
 
     @Test
     public void TestPersonGetName_ShouldPass() {
-        assertEquals(person.getName(), "James");
+        // TODO: get person name
+        assertEquals(, "James");
     }
 
     @Test
     public void TestPersonGetAge_ShouldPass() {
-        assertEquals(person.getAge(), 24);
+        // TODO: get person age
+        assertEquals(, 24);
     }
 
     // NOTE: Using JUNIT 5 assertThrows method
-    @Test()
+    @Test
     public void TestPersonSetName_Null_ShouldThrowException() {
-        // TODO:
+        // TODO: write assertThrows for setName null
         Exception exception =
-        assertEquals(exception.getMessage(), "Error: Person name cannot be null");
+                assertEquals(, "Error: Person name cannot be null");
+        assertEquals(people.size(), 5);
     }
 
-    @Test()
+    @Test
+    public void TestPersonSetAge_ShouldPass() {
+        people.get(0).setAge(88);
+        assertTrue( ); // TODO:
+    }
+
+    @Test // NOTE: edge case - age 1 and 100
     public void TestPersonSetAge_One_ShouldPass() {
-        person.setAge(1);
-        assertEquals(person.getAge(), 1);
+        // TODO: add a person of age 1
+
+        assertTrue(people.contains(chloe));
     }
 
-    @Test()
+    @Test
     public void TestPersonSetAge_Hundred_ShouldPass() {
-        person.setAge(100);
-        assertEquals(person.getAge(), 100);
+        // TODO: add a person of age 100
+
+        assertTrue(people.contains(chloe));
     }
 
-    @Test()
+    @Test // NOTE: boundary case - age 0, 101, and negative
     public void TestPersonSetAge_Zero_ShouldThrowException() {
-        // TODO:
+        // TODO: write assertThrows for setAge 0
         Exception exception =
-        assertEquals(exception.getMessage(), "Error: Person age cannot be zero");
+                assertEquals(, "Error: Person age cannot be zero");
+        assertEquals(people.size(), 5);
     }
 
-    @Test()
+    public void TestPersonSetAge_HundredOne_ShouldThrowException() {
+        // TODO: write assertThrows for setAge 101
+        Exception exception =
+                assertEquals(, "Error: Person cannot be above 100 years old");
+        assertEquals(people.size(), 5);
+    }
+
+    @Test
     public void TestPersonSetAge_Negative_ShouldThrowException() {
-        // TODO:
+        // TODO: write assertThrows for setAge -1
         Exception exception =
-        assertEquals(exception.getMessage(), "Error: Person age must be positive");
-    }
-
-    @Test()
-    public void TestPersonSetAge_AboveHundred_ShouldThrowException() {
-        // TODO:
-        Exception exception =
-        assertEquals(exception.getMessage(), "Error: Person cannot be above 100 years old");
+                assertEquals(, "Error: Person age must be positive");
+        assertEquals(people.size(), 5);
     }
 
     @Test
