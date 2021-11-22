@@ -47,40 +47,44 @@ public class MapTest {
     @Test // NOTE: NO insertion order
     public void TestHashMap_NoInsertOrder_ShouldFail() {
         log.info("asiaHashMap=" + printMap(asiaHashMap));
-        assertNotEquals(asiaHashMap.keySet().toString(), "[South Korea, Japan, Singapore]");
+        // TODO: compare asiaHashMap keys to insertion order
+        assertNotEquals(, "[South Korea, Japan, Singapore]");
     }
 
     @Test // NOTE: has insertion order
     public void TestLinkedHashMap_InsertOrder_ShouldPass() {
         log.info("asiaLinkedHashMap=" + printMap(asiaLinkedHashMap));
-        assertEquals(asiaLinkedHashMap.keySet().toString(), "[South Korea, Japan, Singapore]");
+        // TODO: compare asiaLinkedHashMap keys to insertion order
+        assertEquals(, "[South Korea, Japan, Singapore]");
     }
 
     @Test // NOTE: elements sorted
     public void TestTreeMap_Sorted_ShouldPass() {
         log.info("asiaTreeMap=" + printMap(asiaTreeMap));
-        assertEquals(asiaTreeMap.keySet().toString(), "[Japan, Singapore, South Korea]");
+        // TODO: compare asiaTreeMap keys to sort order
+        assertEquals(, "[Japan, Singapore, South Korea]");
     }
 
     @Test
     public void TestHashMap_Null_ShouldPass() {
-        asiaHashMap.put(null, null);
+        // TODO: add null to asiaHashMap
+
         assertTrue(asiaHashMap.containsKey(null));
         assertEquals(asiaHashMap.size(), 4);
     }
 
     @Test
     public void TestLinkedHashMap_Null_ShouldPass() {
-        asiaLinkedHashMap.put(null, null);
+        // TODO: add null to asiaLinkedHashMap
+
         assertTrue(asiaLinkedHashMap.containsKey(null));
         assertEquals(asiaLinkedHashMap.keySet().toString(), "[South Korea, Japan, Singapore, null]");
     }
 
     @Test
     public void TestTreeMap_NoNull_ShouldFail() {
-        Exception exception = assertThrows(NullPointerException.class, () -> {
-            asiaTreeMap.put(null, null);
-        });
+        // TODO: asiaTreeMap add null throws NullPointerException
+        Exception exception =
         assertEquals(exception.getMessage(), null);
         assertEquals(asiaTreeMap.size(), 3);
     }

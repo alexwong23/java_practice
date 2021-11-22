@@ -59,12 +59,14 @@ public class MapEqualsTest {
 
     @Test
     public void TestHashMap_Equal_ShouldPass() {
-        assertTrue(asiaHashMap.equals(asiaHashMapTwo));
+        // TODO: compare asiaHashMap to asiaHashMapTwo (different insert order)
+        assertTrue( );
     }
 
     @Test
     public void TestHashMap_NotEqual_ShouldFail() {
-        assertFalse(asiaHashMap.equals(diffHashMap));
+        // TODO: compare asiaHashMap to diffHashMap (different values)
+        assertFalse( );
     }
 
     //NOTE:
@@ -72,24 +74,31 @@ public class MapEqualsTest {
     // keyset(): return set view of all keys
     @Test
     public void TestHashMap_EqualKeys_ShouldPass() {
-        assertTrue(asiaHashMap.keySet().equals(diffHashMap.keySet()));
+        // TODO: compare asiaHashMap keys to diffHashMap keys
+        assertTrue( );
     }
 
-    @Test
-    public void TestHashMap_EqualValues_ShouldPass() { // NOTE: // values(): return collection view of all values
-        assertTrue(asiaHashMap.values().containsAll(asiaHashMapTwo.values()));
+    @Test // NOTE: // values(): return collection view of all values
+    public void TestHashMap_EqualValues_ShouldPass() {
+        // TODO: compare asiaHashMap values to diffHashMap values
+        //  * hint: use containsAll() *
+        assertTrue( );
     }
 
     @Test
     public void TestHashMapArray_NotEqual_ShouldFail() {
-        assertEquals(printHashMap(asiaArrayHashMap), printHashMap(asiaArrayHashMapTwo));
-        assertFalse(asiaArrayHashMap.equals(asiaArrayHashMapTwo)); // NOTE: compares reference of String[]
+        // NOTE: compares reference of String[]
+        // TODO: use equals() to compare asiaArrayHashMap to asiaArrayHashMapTwo
+        assertFalse( );
     }
 
     @Test
     public void TestHashMapArray_Equal_ShouldPass() {
-        assertEquals(printHashMap(asiaArrayHashMap), printHashMap(asiaArrayHashMapTwo));
-        assertTrue(equalHashMap(asiaArrayHashMap, asiaArrayHashMapTwo)); // NOTE: compares keys AND values
+        // TODO: compare asiaArrayHashMap string to asiaArrayHashMapTwo string
+        //  * use printHashMap() *
+        assertEquals( );
+        // TODO: complete method equalHashMap()
+        assertTrue(equalHashMap(asiaArrayHashMap, asiaArrayHashMapTwo));
     }
 
     public String printHashMap(Map<String, String[]> hashmap) {
@@ -102,11 +111,14 @@ public class MapEqualsTest {
         return sb.toString();
     }
 
-    // NOTE: helper method to compare maps
+    // NOTE: compares maps by keys AND values
     public boolean equalHashMap(Map<String, String[]> hm1, Map<String, String[]> hm2) {
-        if(hm1.size() != hm2.size()) return false;
+        // TODO: compare sizes first
+        if( ) return false;
 
+        // TODO: use entrySet() and stream().allMatch()
+        // TODO: predicate compares values
         return hm1.entrySet().stream()
-                .allMatch(p -> Arrays.equals(p.getValue(), hm2.get(p.getKey())));
+                .allMatch(p -> Arrays.equals(p.____, hm2.get(p.____)));
     }
 }
