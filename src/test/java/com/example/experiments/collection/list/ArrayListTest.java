@@ -60,7 +60,7 @@ public class ArrayListTest {
     @Test
     public void TestEmployeeEquals_ShouldFail() {
         Employee jamme = new Employee("Jamme", "Soh", 24, 10000.99);
-        assertFalse(employees.get(0).equals(jamme));
+        assertFalse(employees.contains(jamme));
     }
 
     @Test
@@ -70,7 +70,7 @@ public class ArrayListTest {
 
     @Test
     public void TestEmployeeGet_ShouldPass() {
-        assertEquals(derian, employees.get(2));
+        assertEquals(employees.get(2), derian);
     }
 
     @Test
@@ -135,7 +135,7 @@ public class ArrayListTest {
         assertEquals(List.of(jamesw, shat, james, derian), employees);
     }
 
-    @Test
+    @Test // NOTE: BucketSort Challenge
     public void TestEmployeeBucketSortSalaryAsc_ShouldPass() {
 
     }

@@ -39,10 +39,12 @@ public class InterviewTwoTest {
 
     @Test
     public void TestPerson_Find18Above_ShouldPass() {
-        // TODO:
-        List<Person> adults
+        List<Person> adults = people.stream()
+                .filter(p -> p.getAge() > 18)
+                .collect(Collectors.toList());
         assertTrue(adults.equals(List.of(james, josh, alex)));
     }
 
     // TODO: complete PersonTest
+
 }
