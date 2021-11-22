@@ -16,7 +16,8 @@ public class InterviewTwo {
 
 class Person {
 
-    // TODO: write private variables;
+    private String name;
+    private Integer age;
 
     public Person() {}
     public Person(String name, int age) {
@@ -34,6 +35,7 @@ class Person {
     @Override
     public boolean equals(Object o) {
         // TODO:
+
     }
 
     // NOTE:

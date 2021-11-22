@@ -17,7 +17,7 @@ public class InterviewThree {
 
     public InterviewThree(List<String> words) {
         // TODO:
-        groupedByAnagram = ;
+
         for (String word: words) {
 
         }
