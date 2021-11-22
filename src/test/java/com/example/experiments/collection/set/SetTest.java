@@ -33,28 +33,33 @@ public class SetTest {
         for(int integer: integers2)
             example.add(integer);
         for (int integer: integers) {
-            integerHashSet.add(integer);
-            integerLinkedHashSet.add(integer);
+            // TODO: initialise integerHashSet and integerLinkedHashSet
+            integerHashSet.
+            integerLinkedHashSet.
         }
         integerTreeSet = new TreeSet<Integer>(integerHashSet); // NOTE: alternate initialisation
     }
 
     @Test
     public void TestHashSet_ValueEquals_ShouldPass() {
-        assertTrue(integerHashSet.equals(example));
+        // TODO: compare integerHashSet to example
+        assertTrue( );
     }
 
     @Test
     public void TestHashSet_OrderEquals_ShouldFail() {
         assertNotEquals(Arrays.toString(integers), integerHashSet.toString());
-        assertNotEquals(integerHashSet.toString(), example.toString());
-        log.info("integers " + Arrays.toString(integers));
-        log.info("integerHashSet" + integerHashSet.toString());
+        // TODO: compare integerHashSet String to example String
+        assertNotEquals( );
+        // TODO: log to see the difference
+        log.info("integers " + );
+        log.info("integerHashSet" + );
     }
 
     @Test
     public void TestLinkedHashSet_ValueEquals_ShouldPass() {
-        assertTrue(integerLinkedHashSet.equals(example));
+        // TODO: compare integerLinkedHashSet to example
+        assertTrue( );
     }
 
     @Test
