@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Objects;
 
-public class Employee implements Comparable<Employee>, Serializable {
+public class Employee implements Serializable {
 
     private String firstName;
     private String lastName;
@@ -38,7 +38,7 @@ public class Employee implements Comparable<Employee>, Serializable {
     //  Objects.hash(all fields)
 
 
-    // TODO: override compareTo method, returns int
+    // TODO: override compareTo method, returns int, remember to implement!!!
     //  sort by two fields age ASC and firstName ASC
 
 
