@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MapTest {
 
-    // TODO: implement other maps like treemap and linkedhashmap?
     public static Logger log = LoggerFactory.getLogger(Employee.class);
     private static Map<String, String> asiaHashMap, asiaLinkedHashMap, asiaTreeMap;
 
