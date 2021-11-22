@@ -39,8 +39,9 @@ public class InterviewTwoTest {
 
     @Test
     public void TestPerson_Find18Above_ShouldPass() {
-        // TODO:
-        List<Person> adults
+        List<Person> adults = people.stream()
+                .filter(p -> p.getAge() > 18)
+                .collect(Collectors.toList());
         assertTrue(adults.equals(List.of(james, josh, alex)));
     }
 
@@ -54,7 +55,7 @@ public class InterviewTwoTest {
     @Test
     public void TestPersonSetName_Null_ShouldThrowException() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            people.add(); // TODO:
+            people.add(new Person(null, 1));
         });
         assertEquals(exception.getMessage(), "Error: Person name cannot be null");
         assertEquals(people.size(), 5);
@@ -63,19 +64,19 @@ public class InterviewTwoTest {
     @Test
     public void TestPersonSetAge_ShouldPass() {
         people.get(0).setAge(88);
-        assertTrue( ); // TODO:
+        assertTrue(people.get(0).getAge() == 88);
     }
 
     @Test // NOTE: edge case - age 1 and 100
     public void TestPersonSetAge_One_ShouldPass() {
-        Person chloe = new Person(); // TODO:
+        Person chloe = new Person("chloe", 1);
         people.add(chloe);
         assertTrue(people.contains(chloe));
     }
 
     @Test
     public void TestPersonSetAge_Hundred_ShouldPass() {
-        Person chloe = new Person(); // TODO:
+        Person chloe = new Person("chloe", 100);
         people.add(chloe);
         assertTrue(people.contains(chloe));
     }
@@ -83,7 +84,7 @@ public class InterviewTwoTest {
     @Test // NOTE: boundary case - age 0, 101, and negative
     public void TestPersonSetAge_Zero_ShouldThrowException() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            people.add( ); // TODO:
+            people.add(new Person("Chloe", 0));
         });
         assertEquals(exception.getMessage(), "Error: Person age cannot be zero");
         assertEquals(people.size(), 5);
@@ -91,7 +92,7 @@ public class InterviewTwoTest {
 
     public void TestPersonSetAge_HundredOne_ShouldThrowException() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            people.add( ); // TODO:
+            people.add(new Person("Chloe", 101));
         });
         assertEquals(exception.getMessage(), "Error: Person cannot be above 100 years old");
         assertEquals(people.size(), 5);
@@ -100,7 +101,7 @@ public class InterviewTwoTest {
     @Test
     public void TestPersonSetAge_Negative_ShouldThrowException() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            people.add( ); // TODO:
+            people.add(new Person("Chloe", -1));
         });
         assertEquals(exception.getMessage(), "Error: Person age must be positive");
         assertEquals(people.size(), 5);
