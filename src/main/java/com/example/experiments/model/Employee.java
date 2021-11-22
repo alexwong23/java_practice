@@ -28,28 +28,19 @@ public class Employee implements Comparable<Employee>, Serializable {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return firstName.equals(employee.firstName) &&
-                lastName.equals(employee.lastName) &&
-                age.equals(employee.age) &&
-                salary.equals(employee.salary);
-    }
+    // TODO: override the equals method, returns boolean
+    //  if conditions - check if same reference using ==
+    //  if conditions - object must be not be null and have same class
+    //  equality - all fields must be equal
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstName, lastName, age, salary);
-    }
 
-    // sort by two fields age and then first name
-    public int compareTo(Employee e) {
-        int diff = this.age - e.age;
-        if(diff != 0) return diff;
-        return this.getFirstName().compareTo(e.getFirstName());
-    }
+    // TODO: override the hashCode method, returns int
+    //  Objects.hash(all fields)
+
+
+    // TODO: override compareTo method, returns int
+    //  sort by two fields age ASC and firstName ASC
+
 
     public String getFirstName() {
         return firstName;

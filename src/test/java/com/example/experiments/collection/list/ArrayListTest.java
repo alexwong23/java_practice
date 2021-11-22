@@ -30,14 +30,14 @@ public class ArrayListTest {
         shat = new Employee("Shatyam", "Thee", 24, 9988.23);
         james = new Employee("James", "Soh", 24, 10000.99);
         jamesw = new Employee("James", "Bond", 19, 0.0);
-        finalEmployees = new ArrayList<>(
-                List.of(shat, james, derian, jamesw) // initialise with elements
-        );
+        // TODO: initialise finalEmployees list with order - shat, james, derian, jamesw
+        finalEmployees =
     }
 
     @BeforeEach()
     public void Setup() {
-        employees.addAll(finalEmployees);
+        // TODO: use addAll() to add finalEmployees into employees List
+
     }
 
     @AfterEach()
@@ -52,31 +52,36 @@ public class ArrayListTest {
     public void TestDifferentPrint_ShouldPass() {
         int[] integerArray = new int[] { 4, 3, 7, 0, 1 };
         List<Integer> integerArrayList = new ArrayList<Integer>( List.of(4, 3, 7, 0, 1) );
-        assertEquals("[4, 3, 7, 0, 1]", Arrays.toString(integerArray));
-        assertEquals("[4, 3, 7, 0, 1]", String.valueOf(integerArrayList));
-        assertEquals(String.valueOf(finalEmployees), "[Employee{firstName='Shatyam', lastName='Thee', age=24, salary=9988.23}, Employee{firstName='James', lastName='Soh', age=24, salary=10000.99}, Employee{firstName='Derian', lastName='Tan', age=26, salary=15500.23}, Employee{firstName='James', lastName='Bond', age=19, salary=0.0}]");
+        // TODO: get integerArray String
+        assertEquals("[4, 3, 7, 0, 1]", );
+        // TODO: get integerArrayList String
+        assertEquals("[4, 3, 7, 0, 1]", );
     }
 
     @Test
     public void TestEmployeeEquals_ShouldFail() {
         Employee jamme = new Employee("Jamme", "Soh", 24, 10000.99);
-        assertFalse(employees.contains(jamme));
+        // TODO: use contains() to check if employee List has Jamme
+        assertFalse( );
     }
 
     @Test
     public void TestEmployeeEquals_ShouldPass() {
-        assertTrue(employees.get(1).equals(james));
+        // TODO: use get() and equals() to retrieve james
+        assertTrue( james );
     }
 
     @Test
     public void TestEmployeeGet_ShouldPass() {
-        assertEquals(employees.get(2), derian);
+        // TODO: use get() to retrieve derian
+        assertEquals( derian );
     }
 
     @Test
     public void TestEmployeeSet_ShouldPass() {
         Employee mo = new Employee("Mohammed", "Salah", 28, 21000.99);
-        employees.set(1, mo);
+        // TODO: use set() to replace second employee with Mo
+
         assertEquals(employees.size(), 4);
         assertTrue(employees.get(1).equals(mo));
     }
@@ -84,14 +89,16 @@ public class ArrayListTest {
     @Test
     public void TestEmployeeAdd_ShouldPass() {
         Employee mo = new Employee("Mohammed", "Salah", 28, 21000.99);
-        employees.add(mo);
+        // TODO: add Mo to employees List
+
         assertEquals(employees.size(), 5);
         assertTrue(employees.contains(mo));
     }
 
     @Test
     public void TestEmployeeRemove_ShouldPass() {
-        employees.remove(2);
+        // TODO: remove derian from employees List
+
         assertEquals(employees.size(), 3);
         assertEquals(jamesw, employees.get(2));
         assertFalse(employees.contains(derian));
@@ -101,21 +108,26 @@ public class ArrayListTest {
     // NOTE: contains && indexOf
     @Test
     public void TestEmployeeContainsAndIndexOf_ShouldPass() {
-        assertTrue(employees.contains(jamesw));
-        assertEquals(3, employees.indexOf(jamesw));
+        // TODO: check if jamesw is an employee
+        assertTrue( jamesw );
+        // TODO: how to find index of jamesw in the list
+        assertEquals(3, );
     }
 
     @Test
     public void TestEmployeeSortByAgeLambda_ShouldPass() {
-        Collections.sort(employees, (o1, o2) ->
-            (int) o2.getAge() - o1.getAge()
+        // TODO: use a lambda expression to sort by age DESCENDING
+        //  * return an int *
+        Collections.sort(employees, ( , ) ->
+            (int)
         );
         assertEquals(List.of(derian, shat, james, jamesw), employees);
     }
 
     @Test
     public void TestEmployeeSortAgeNameAsc_ShouldPass() {
-        Collections.sort(employees);
+        // TODO: sort by Object's compareTo() method
+
         assertEquals(List.of(jamesw, james, shat, derian), employees);
     }
 
@@ -123,21 +135,23 @@ public class ArrayListTest {
     @Test
     public void TestEmployeeSortFirstLastNameAsc_ShouldPass() {
         // sort by two fields first name and last name
-        FirstLastNameCompare firstLastNameCompare = new FirstLastNameCompare();
+        // TODO: complete comparator FirstLastNameCompare
+
         Collections.sort(employees, firstLastNameCompare);
         assertEquals(List.of(derian, jamesw, james, shat), employees);
     }
 
     @Test
     public void TestEmployeeSortSalaryAsc_ShouldPass() {
-        SalaryCompare salaryCompare = new SalaryCompare();
+        // TODO: complete comparator SalaryCompare
+
         Collections.sort(employees, salaryCompare);
         assertEquals(List.of(jamesw, shat, james, derian), employees);
     }
 
-    @Test // NOTE: BucketSort Challenge
+    @Test
     public void TestEmployeeBucketSortSalaryAsc_ShouldPass() {
-
+        // TODO: Additional challenge - implement BucketSort
     }
 
 }

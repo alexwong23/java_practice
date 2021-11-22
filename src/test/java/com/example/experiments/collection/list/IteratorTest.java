@@ -27,9 +27,7 @@ public class IteratorTest {
         shat = new Employee("Shatyam", "Thee", 24, 9988.23);
         james = new Employee("James", "Soh", 24, 10000.99);
         jamesw = new Employee("James", "Bond", 19, 0.0);
-        finalEmployees = new ArrayList<>(
-                List.of(shat, james, derian, jamesw) // initialise with elements
-        );
+        finalEmployees = new ArrayList<>(List.of(shat, james, derian, jamesw));
     }
 
     @BeforeEach()
