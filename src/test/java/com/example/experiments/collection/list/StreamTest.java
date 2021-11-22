@@ -26,12 +26,14 @@ public class StreamTest {
         shat = new Employee("Shatyam", "Thee", 24, 9988.23);
         james = new Employee("James", "Soh", 24, 10000.99);
         jamesw = new Employee("James", "Bond", 19, 0.0);
-        finalEmployees = new ArrayList<>(List.of(shat, james, derian, jamesw));
+        // TODO: initialise finalEmployees list with order - shat, james, derian, jamesw
+        finalEmployees =
     }
 
     @BeforeEach()
     public void Setup() {
-        employees.addAll(finalEmployees);
+        // TODO: use addAll() to add finalEmployees into employees List
+
     }
 
     @AfterEach()

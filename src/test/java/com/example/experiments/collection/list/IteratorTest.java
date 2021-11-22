@@ -27,12 +27,14 @@ public class IteratorTest {
         shat = new Employee("Shatyam", "Thee", 24, 9988.23);
         james = new Employee("James", "Soh", 24, 10000.99);
         jamesw = new Employee("James", "Bond", 19, 0.0);
-        finalEmployees = new ArrayList<>(List.of(shat, james, derian, jamesw));
+        // TODO: initialise finalEmployees list with order - shat, james, derian, jamesw
+        finalEmployees =
     }
 
     @BeforeEach()
     public void Setup() {
-        employees.addAll(finalEmployees);
+        // TODO: use addAll() to add finalEmployees into employees List
+
     }
 
     @AfterEach()
@@ -42,29 +44,36 @@ public class IteratorTest {
 
     @Test
     public void TestEmployeeGet_ShouldPass() {
-        Iterator<Employee> it = employees.iterator();
-        assertEquals(shat, it.next()); // first element
-        assertEquals(james, it.next());
-        assertEquals(derian, it.next());
-        assertEquals(jamesw, it.next());
+        // TODO: implement iterator for employee
+        //  * Iterator<?> i = object.iterator() *
+
+        // TODO: utilise iterator method next() to traverse
+        assertEquals(shat, ); // first element
+        assertEquals(james, );
+        assertEquals(derian, );
+        assertEquals(jamesw, );
     }
 
     @Test
     public void TestEmployeeLoop_ShouldPass() {
-        Iterator<Employee> it = employees.iterator();
+        // TODO: implement iterator for employee
+
+        // TODO: utilise while loop and method hasNext() to traverse
         int counter = 0;
-        while(it.hasNext()) {
-            assertEquals(employees.get(counter), it.next());
+        while( ) {
+            assertEquals(employees.get(counter), );
             counter++;
         }
     }
 
     @Test
     public void TestEmployeeRemove_ShouldPass() {
-        Iterator<Employee> it = employees.iterator();
-        while(it.hasNext()) {
-            it.next();
-            it.remove();
+        // TODO: implement iterator for employee
+
+        // TODO: utilise while loop and method hasNext() to remove!
+        //  * use remove() *
+        while( ) {
+
         }
         assertEquals(employees.size(), 0);
         assertEquals("[]", employees.toString());
