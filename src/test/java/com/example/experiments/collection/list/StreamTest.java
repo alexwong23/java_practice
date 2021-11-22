@@ -55,12 +55,11 @@ public class StreamTest {
     }
 
     @Test
-    public void TestEmployeeFindJamesBond_ShouldPass() {
-        Optional<Employee> bond = employees.stream()
-                        .filter(x -> x.getFirstName().equals("James") &&
-                                    x.getLastName().equals("Bond"))
-                        .findAny();
-        assertEquals(jamesw, bond.get());
+    public void TestEmployeeFindAllJames_ShouldPass() {
+        List<Employee> allJames = employees.stream()
+                .filter(x -> x.getFirstName().equals("James"))
+                .collect(Collectors.toList());
+        assertTrue(allJames.equals(List.of(james, jamesw)));
     }
 
     @Test
