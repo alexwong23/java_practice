@@ -65,13 +65,11 @@ public class SetTest {
     @Test
     public void TestTreeSet_ValueEquals_ShouldPass() {
         assertTrue(integerTreeSet.equals(example));
-        assertEquals(integerTreeSet.toString(), "[4, 11, 23, 29, 45, 69, 77, 112]");
     }
 
     @Test
     public void TestTreeSet_OrderEquals_ShouldPass() {
-        assertEquals(Arrays.toString(sortedIntegers), integerTreeSet.toString());
-        log.info("integerTreeSet" + integerTreeSet.toString());
+        assertEquals(integerTreeSet.toString(), Arrays.toString(sortedIntegers));
     }
 
     @Test
