@@ -32,15 +32,14 @@ public class SetTest {
     public void Setup() {
         example = new HashSet<Integer>();
         integerHashSet = new HashSet<Integer>();
-        integerTreeSet = new TreeSet<Integer>(integerHashSet);
         integerLinkedHashSet = new LinkedHashSet<Integer>();
         for(int integer: integers2)
             example.add(integer);
         for (int integer: integers) {
             integerHashSet.add(integer);
-            integerTreeSet.add(integer);
             integerLinkedHashSet.add(integer);
         }
+        integerTreeSet = new TreeSet<Integer>(integerHashSet); // NOTE: alternate initialisation
     }
 
     @Test
