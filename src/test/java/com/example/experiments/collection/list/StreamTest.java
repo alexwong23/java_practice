@@ -43,24 +43,26 @@ public class StreamTest {
 
     @Test
     public void TestEmployeeCount_ShouldPass() {
-        assertEquals(employees.stream().count(), 4);
+        // TODO: use stream to get count
+        assertEquals(, 4);
     }
 
     @Test
     public void TestEmployeeContains_ShouldPass() {
-        assertFalse((employees.stream()
-                .anyMatch(x -> x.getFirstName().equals("Alex"))));
-        assertTrue((employees.stream()
-                .anyMatch(x -> x.getFirstName().equals("James"))));
+        // TODO: use stream to check if contains * use method anyMatch() *
+        //  check if there is an employee with first name 'Alex'
+        //  check if there is an employee with first name 'James'
+        assertFalse((employees.stream(). );
+        assertTrue((employees.stream(). );
     }
 
     @Test
     public void TestEmployeeFindJamesBond_ShouldPass() {
-        Optional<Employee> bond = employees.stream()
-                        .filter(x -> x.getFirstName().equals("James") &&
-                                    x.getLastName().equals("Bond"))
-                        .findAny();
-        assertEquals(jamesw, bond.get());
+        // TODO: use stream to filter  * use method anyMatch() *
+        List<Employee> jamess = employees.stream()
+                        .filter(x -> x.getFirstName().equals("James"))
+                        .collect(Collectors.toList());
+        assertTrue(jamess.equals(List.of(james, jamesw)));
     }
 
     @Test
