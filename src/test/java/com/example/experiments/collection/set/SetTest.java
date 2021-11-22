@@ -15,10 +15,7 @@ public class SetTest {
 
     public static Logger log = LoggerFactory.getLogger(InterviewThree.class);
     private static int[] integers, integers2, uniqueIntegers, sortedIntegers;
-    private Set<Integer> example;
-    private Set<Integer> integerHashSet;
-    private Set<Integer> integerTreeSet;
-    private Set<Integer> integerLinkedHashSet;
+    private Set<Integer> integerHashSet, integerTreeSet, integerLinkedHashSet, example;
 
     @BeforeAll
     public static void Initialise() {
