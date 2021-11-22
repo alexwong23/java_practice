@@ -57,100 +57,75 @@ public class StreamTest {
     }
 
     @Test
-    public void TestEmployeeFindJamesBond_ShouldPass() {
-        // TODO: use stream to filter  * use method anyMatch() *
-        List<Employee> jamess = employees.stream()
-                        .filter(x -> x.getFirstName().equals("James"))
-                        .collect(Collectors.toList());
-        assertTrue(jamess.equals(List.of(james, jamesw)));
-    }
-
-    @Test
     public void TestEmployeeMaxMinOptional_ShouldPass() {
-        Optional<Employee> rich = employees.stream()
-                .max(Comparator.comparing(Employee::getSalary));
-        Optional<Employee> poor = employees.stream()
-                .min(Comparator.comparing(Employee::getSalary));
+        // TODO: use stream max() to find employee with the highest salary
+        //  * use Comparator.comparing( :: ) * google the answer if needed
+        Optional<Employee> rich = employees.stream();
+        // TODO: use stream min() to find employee with the lowest salary
+        Optional<Employee> poor = employees.stream();
         assertEquals(rich.get(), derian);
         assertEquals(poor.get(), jamesw);
     }
 
     @Test
     public void TestEmployeeFilter_ShouldPass() {
-        List<Employee> foundEmployees = employees.stream()
-                .filter(x -> x.getFirstName().equals("James"))
-                .collect(Collectors.toList());
+        // TODO: use stream filter to return employees with firstName 'James'
+        List<Employee> foundEmployees;
         assertEquals(foundEmployees, List.of(james, jamesw));
     }
 
     @Test
     public void TestEmployeeLimitFirstTwo_ShouldPass() {
-        List<Employee> firstTwo = employees.stream()
-                .limit(2)
-                .collect(Collectors.toList());
+        // TODO: use stream limit to return the first two employees
+        List<Employee> firstTwo;
         assertEquals(firstTwo, List.of(shat, james));
     }
 
     @Test
     public void TestEmployeeDistinct_ShouldPass() {
         List<String> alphabets = new ArrayList<String>(
-                List.of("A", "A", "B", "D", "B", "C", "D")
-        );
-        List<String> distinct = alphabets.stream()
-                .distinct()
-                .collect(Collectors.toList());
+                List.of("A", "A", "B", "D", "B", "C", "D"));
+        // TODO: use stream distinct to return unique alphabets
+        List<String> distinct;
         assertEquals(distinct.toString(), "[A, B, D, C]");
     }
 
     @Test
     public void TestEmployeeFullnameUppercaseUsingForEachAndMap_ShouldPass() {
-        employees.forEach(f -> {
-            f.setFirstName(f.getFirstName().toUpperCase());
-            f.setLastName(f.getLastName().toUpperCase());
-        });
-        List<String> firstNames = employees.stream()
-                .map(x -> x.getFirstName() + " " + x.getLastName())
-                .collect(Collectors.toList());
-        assertEquals(firstNames.toString(), "[SHATYAM THEE, JAMES SOH, DERIAN TAN, JAMES BOND]");
+        // TODO: use forEach to set employee first and last names toUpperCase
+        employees.forEach();
+        // TODO: use stream map to return a list of fullnames
+        List<String> fullNames;
+        assertEquals(fullNames.toString(), "[SHATYAM THEE, JAMES SOH, DERIAN TAN, JAMES BOND]");
     }
 
     @Test
     public void TestEmployeeAddMultiplyUsingReduce_ShouldPass() {
         List<Integer> integers = new ArrayList<Integer>(List.of(2, 3, 4, 5));
-        Integer totalSum = integers.stream()
-                .reduce(0, (partial, number) -> partial + number);
-        Integer totalMultiply = integers.stream()
-                .reduce(1, (partial, number) -> partial * number);
+        // TODO: use stream reduce to find total sum of integers
+        //  * reduce(starting number, (partial, element) -> operation) *
+        Integer totalSum;
+        // TODO: use stream reduce to find total multiplication of integers
+        Integer totalMultiply;
         assertEquals(totalSum, 14);
         assertEquals(totalMultiply, 120);
     }
 
     @Test
     public void TestEmployeeSortFirstNameAsc_ShouldPass() {
-        Comparator<Employee> compareByFirstName = Comparator
-                .comparing(Employee::getFirstName);
-        List<Employee> sortedEmployees = employees.stream()
-                .sorted(compareByFirstName)
-                .collect(Collectors.toList());
+        // TODO: create firstName comparator using Comparator.comparing()
+        Comparator<Employee> compareByFirstName;
+        // TODO: Use stream sorted() to sort by comparator
+        List<Employee> sortedEmployees;
         assertEquals(List.of(derian, james, jamesw, shat), sortedEmployees);
     }
 
     @Test
     public void TestEmployeeSortFirstLastNameAsc_ShouldPass() {
-        Comparator<Employee> compareByName = Comparator
-                .comparing(Employee::getFirstName)
-                .thenComparing(Employee::getLastName);
-        List<Employee> sortedEmployees = employees.stream()
-                .sorted(compareByName)
-                .collect(Collectors.toList());
+        // TODO: create multifield comparator using Comparator.comparing().thenComparing()
+        Comparator<Employee> compareByName;
+        // TODO: Use stream sorted() to sort by comparator
+        List<Employee> sortedEmployees;
         assertEquals(List.of(derian, jamesw, james, shat), sortedEmployees);
-    }
-
-    @Test
-    public void TestEmployeeParallelForEachOrdered_ShouldPass() {
-        List<Double> salariesParallel = new ArrayList<Double>();
-        employees.parallelStream()
-                .forEachOrdered(x -> salariesParallel.add(x.getSalary()));
-        assertEquals(salariesParallel.toString(), "[9988.23, 10000.99, 15500.23, 0.0]");
     }
 }
