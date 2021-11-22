@@ -58,7 +58,7 @@ public class SetTest {
     }
 
     @Test
-    public void TestLinkedHashSet_OrderEquals_ShouldFail() {
+    public void TestLinkedHashSet_OrderEquals_ShouldPass() {
         assertEquals(integerLinkedHashSet.toString(), Arrays.toString(uniqueIntegers));
     }
 
