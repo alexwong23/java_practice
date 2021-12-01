@@ -28,6 +28,10 @@ public class Employee implements Comparable<Employee>, Serializable {
                 '}';
     }
 
+    // NOTE:
+    //  1. argument is an object!
+    //  2. by default, compares object reference
+    //  3. compares values of object
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

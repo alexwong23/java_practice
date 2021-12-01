@@ -66,20 +66,12 @@ public class InterviewThree {
 
 class EmployeeAgeCompare implements Comparator<Employee> {
     public int compare(Employee e1, Employee e2) {
-        int diff = e1.getAge() - e2.getAge();
-        if(diff != 0) return diff;
-        int fNameDiff = e1.getFirstName().compareTo(e2.getFirstName());
-        if(fNameDiff != 0) return fNameDiff;
-        return e1.getLastName().compareTo(e2.getLastName());
+        return e1.getAge() - e2.getAge();
     }
 }
 class EmployeeSalaryCompare implements Comparator<Employee> {
     public int compare(Employee e1, Employee e2) {
-        int diff = (int) (e1.getSalary() - e2.getSalary());
-        if(diff != 0) return diff;
-        int fNameDiff = e1.getFirstName().compareTo(e2.getFirstName());
-        if(fNameDiff != 0) return fNameDiff;
-        return e1.getLastName().compareTo(e2.getLastName());
+        return (int) (e1.getSalary() - e2.getSalary());
     }
 }
 
