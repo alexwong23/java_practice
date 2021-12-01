@@ -1,5 +1,6 @@
-package com.example.experiments.interview;
+package com.example.experiments.answers.interview;
 
+import com.example.experiments.interview.two.Person;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

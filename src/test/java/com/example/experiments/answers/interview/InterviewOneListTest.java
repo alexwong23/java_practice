@@ -1,5 +1,7 @@
-package com.example.experiments.interview;
+package com.example.experiments.answers.interview;
 
+import com.example.experiments.interview.one.InterviewOne;
+import com.example.experiments.interview.one.InterviewOneUsingList;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

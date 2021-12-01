@@ -1,5 +1,9 @@
-package com.example.experiments.interview;
+package com.example.experiments.answers.interview;
 
+import com.example.experiments.interview.three.EmployeeAgeCompare;
+import com.example.experiments.interview.three.EmployeeSalaryCompare;
+import com.example.experiments.interview.three.InterviewThree;
+import com.example.experiments.interview.three.InterviewThreeUsingList;
 import com.example.experiments.model.Employee;
 import com.example.experiments.model.FirstLastNameCompare;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,7 +19,7 @@ import java.util.stream.Collectors;
 
 public class InterviewThreeTest {
 
-    public static Logger log = LoggerFactory.getLogger(InterviewThree.class);
+    public static Logger log = LoggerFactory.getLogger(Employee.class);
     private InterviewThree groupedByAnagram;
     private InterviewThreeUsingList groupedByAnagramList;
     private static List<String> words;

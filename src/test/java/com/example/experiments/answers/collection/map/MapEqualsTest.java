@@ -1,4 +1,4 @@
-package com.example.experiments.collection.map;
+package com.example.experiments.answers.collection.map;
 
 import com.example.experiments.model.Employee;
 import org.junit.jupiter.api.AfterEach;

@@ -1,6 +1,6 @@
-package com.example.experiments.collection.set;
+package com.example.experiments.answers.collection.set;
 
-import com.example.experiments.interview.InterviewThree;
+import com.example.experiments.interview.three.InterviewThree;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

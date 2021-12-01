@@ -1,4 +1,4 @@
-package com.example.experiments.collection.queue;
+package com.example.experiments.answers.collection.queue;
 
 import com.example.experiments.model.Employee;
 import com.example.experiments.model.FirstLastNameCompare;

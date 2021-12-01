@@ -1,4 +1,4 @@
-package com.example.experiments.interview;
+package com.example.experiments.interview.three;
 
 import java.util.ArrayList;
 import java.util.Arrays;

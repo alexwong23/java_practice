@@ -1,4 +1,4 @@
-package com.example.experiments.interview;
+package com.example.experiments.interview.one;
 
 import java.util.Arrays;
 
