@@ -94,7 +94,7 @@ public class InterviewThreeTest {
         List<String> names = employees.stream()
                 .map(p -> p.getFirstName() + " " + p.getLastName())
                 .collect(Collectors.toList());
-        assertEquals(names.toString(), "[James Bond, James Soh, Shatyam Thee, Derian Tan]");
+        assertEquals(names.toString(), "[James Bond, Shatyam Thee, James Soh, Derian Tan]");
     }
 
     @Test
@@ -103,6 +103,31 @@ public class InterviewThreeTest {
 
         Collections.sort(employees, ???);
         List<String> names = employees.stream()
+                .map(p -> p.getFirstName() + " " + p.getLastName())
+                .collect(Collectors.toList());
+        assertEquals(names.toString(), "[Shatyam Thee, James Soh, James Bond, Derian Tan]");
+    }
+
+    // TODO: Challenge
+    //     Get employee names in ascending order based on age, firstname and lastname
+    //     Get employee names in ascending order based on salary, firstname and lastname
+    //     * hint: use Comparator.comparing().thenComparing() *
+
+    @Test
+    public void TestEmployee_AgeFirstLastNameCompare_ShouldPass() {
+        Comparator<Employee> ageFirstLastNameCompare = // TODO:
+        List<String> names = employees.stream()
+                .sorted( ??? )
+                .map(p -> p.getFirstName() + " " + p.getLastName())
+                .collect(Collectors.toList());
+        assertEquals(names.toString(), "[James Bond, James Soh, Shatyam Thee, Derian Tan]");
+    }
+
+    @Test
+    public void TestEmployee_SalaryFirstLastNameCompare_ShouldPass() {
+        Comparator<Employee> salaryFirstLastNameCompare = // TODO:
+        List<String> names = employees.stream()
+                .sorted( ??? )
                 .map(p -> p.getFirstName() + " " + p.getLastName())
                 .collect(Collectors.toList());
         assertEquals(names.toString(), "[Shatyam Thee, James Bond, James Soh, Derian Tan]");

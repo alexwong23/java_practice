@@ -35,51 +35,48 @@ public class PersonTest {
     public void TestPersonSetName_Null_ShouldThrowException() {
         // TODO: write assertThrows for setName null
         Exception exception =
-                assertEquals(, "Error: Person name cannot be null");
-        assertEquals(people.size(), 5);
+        assertEquals(, "Error: Person name cannot be null");
     }
 
     @Test
     public void TestPersonSetAge_ShouldPass() {
-        people.get(0).setAge(88);
-        assertTrue( ); // TODO:
+        // TODO: set person age to 88
+
+        assertEquals(person.getAge(), 88);
     }
 
     @Test // NOTE: edge case - age 1 and 100
     public void TestPersonSetAge_One_ShouldPass() {
-        // TODO: add a person of age 1
+        // TODO: set person age to 1
 
-        assertTrue(people.contains(chloe));
+        assertEquals(person.getAge(), 1);
     }
 
     @Test
     public void TestPersonSetAge_Hundred_ShouldPass() {
-        // TODO: add a person of age 100
+        // TODO: set person age to 100
 
-        assertTrue(people.contains(chloe));
+        assertEquals(person.getAge(), 100);
     }
 
     @Test // NOTE: boundary case - age 0, 101, and negative
     public void TestPersonSetAge_Zero_ShouldThrowException() {
         // TODO: write assertThrows for setAge 0
         Exception exception =
-                assertEquals(, "Error: Person age cannot be zero");
-        assertEquals(people.size(), 5);
+        assertEquals(, "Error: Person age cannot be zero");
     }
 
     public void TestPersonSetAge_HundredOne_ShouldThrowException() {
         // TODO: write assertThrows for setAge 101
         Exception exception =
-                assertEquals(, "Error: Person cannot be above 100 years old");
-        assertEquals(people.size(), 5);
+        assertEquals(, "Error: Person cannot be above 100 years old");
     }
 
     @Test
     public void TestPersonSetAge_Negative_ShouldThrowException() {
         // TODO: write assertThrows for setAge -1
         Exception exception =
-                assertEquals(, "Error: Person age must be positive");
-        assertEquals(people.size(), 5);
+        assertEquals(, "Error: Person age must be positive");
     }
 
     @Test
