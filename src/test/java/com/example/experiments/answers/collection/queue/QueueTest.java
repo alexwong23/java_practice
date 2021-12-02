@@ -18,7 +18,7 @@ public class QueueTest {
     private static PriorityQueue<Employee> employeesPQ;
 
     public static Logger log = LoggerFactory.getLogger(Employee.class);
-    private static List<Employee> finalEmployees;
+    private static List<Employee> finalEmployees, sortByName;
     private static Employee derian, shat, james, jamesw, mo, chloe;
 
     @BeforeAll() // executes once and before BeforeEach
@@ -29,6 +29,7 @@ public class QueueTest {
         jamesw = new Employee("James", "Bond", 19, 0.0);
         mo = new Employee("Mohammed", "Salah", 28, 21000.99);
         chloe = new Employee("Chloe", "Chua", 23, 5000.00);
+        sortByName = new ArrayList<>(List.of(derian, jamesw, james, shat));
         // NOTE: according to natural order (if they implement Comparable) or according to Comparator
         employeesPQ = new PriorityQueue<>(new FirstLastNameCompare());
     }
@@ -51,11 +52,11 @@ public class QueueTest {
     @Test
     public void TestQueue_InsertionOrder_ShouldFail() {
         assertEquals(employeesLL.toString(), finalEmployees.toString());
-        assertNotEquals(getPQOrder(employeesPQ).toString(), finalEmployees.toString());
+        assertNotEquals(employeesPQ.toString(), finalEmployees.toString());
 
-        // NOTE: PQ internal structure NOT SORTED, so perform loop with poll()
-        assertFalse(employeesPQ.equals(List.of(derian, jamesw, james, shat)));
-        assertTrue(getPQOrder(employeesPQ).equals(List.of(derian, jamesw, james, shat)));
+        assertEquals(employeesPQ.toString(), sortByName.toString());
+        // NOTE: PQ internal structure may NOT SORTED, so perform loop with poll()
+        assertEquals(getPQOrder(employeesPQ).toString(), sortByName.toString());
     }
 
     public List<Employee> getPQOrder(PriorityQueue<Employee> pq) {
