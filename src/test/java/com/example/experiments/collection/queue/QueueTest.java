@@ -1,223 +1,109 @@
-//package com.example.experiments.collection.queue;
-//
-//import com.example.experiments.model.Employee;
-//import com.example.experiments.model.FirstLastNameCompare;
-//import org.junit.jupiter.api.AfterEach;
-//import org.junit.jupiter.api.BeforeAll;
-//import org.junit.jupiter.api.BeforeEach;
-//import org.junit.jupiter.api.Test;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-//
-//import java.util.*;
-//import static org.junit.jupiter.api.Assertions.*;
-//
-//public class QueueTest {
-//
-//    private LinkedList<Employee> employeesLL = new LinkedList<>();
-//    // NOTE: according to natural order (if they implement Comparable) or according to Comparator
-//    private static PriorityQueue<Employee> employeesPQ;
-//
-//    public static Logger log = LoggerFactory.getLogger(Employee.class);
-//    private static List<Employee> finalEmployees;
-//    private static Employee derian, shat, james, jamesw, mo;
-//
-//    // getfirst() && getlast()
-//    // push() && pop()
-//    // add(): add to end of Queue, throws exception if full
-//    // offer(): add to end of Queue, return false if full
-//    // remove(): remove the first element in Queue, throws exception if empty
-//    // poll(): remove the first element in Queue, return null if empty
-//    // element(): return (without removing) first element in Queue, throws exception if empty
-//    // peak(): return (without removing) first element in Queue, return null if empty // NOTE: useful method
-//
-//    @BeforeAll() // executes once and before BeforeEach
-//    public static void InitialSetup () {
-//        derian = new Employee("Derian", "Tan", 26, 15500.23);
-//        shat = new Employee("Shatyam", "Thee", 24, 9988.23);
-//        james = new Employee("James", "Soh", 24, 10000.99);
-//        jamesw = new Employee("James", "Bond", 19, 0.0);
-//        mo = new Employee("Mohammed", "Salah", 28, 21000.99);
-//        // TODO: initialise PriorityQueue with comparator FirstLastNameCompare
-//        employeesPQ =
-//    }
-//
-//    @BeforeEach
-//    public void Setup() {
-//        finalEmployees = new ArrayList<>(List.of(shat, james, derian, jamesw));
-//        // TODO: add finalEmployees to LL and PQ
-//        employeesLL.
-//        employeesPQ.
-//    }
-//
-//    @AfterEach
-//    public void Breakdown() {
-//        finalEmployees.clear();
-//        employeesLL.clear();
-//        employeesPQ.clear();
-//    }
-//
-//    @Test
-//    public void TestQueue_InsertionOrder_ShouldFail() {
-//        assertEquals(employeesLL.toString(), finalEmployees.toString());
-//        // NOTE: toString() does not return sort order of PQ, so use poll() instead
-//        // TODO: use getPQOrder() to compare PQ String to finalEmployees String
-//        //  * remember to sort *
-//        assertEquals(, finalEmployees.toString());
-//    }
-//
-//    @Test
-//    public void TestLinkedList_GetFirst_ShouldPass() {
-//        // TODO:
-//        assertEquals(, shat);
-//        assertTrue(employeesLL.contains(shat));
-//    }
-//
-//    @Test
-//    public void TestLinkedList_GetLast_ShouldPass() {
-//        // TODO:
-//        assertEquals(, jamesw);
-//        assertTrue(employeesLL.contains(jamesw));
-//    }
-//
-//    @Test // NOTE: push to HEAD
-//    public void TestLinkedList_Push_ShouldPass() {
-//        // TODO:
-//
-//        assertTrue(employeesLL.equals(List.of(mo, shat, james, derian, jamesw)));
-//    }
-//
-//    @Test // NOTE: pop at HEAD
-//    public void TestLinkedList_Pop_ShouldPass() {
-//        // TODO:
-//
-//        assertTrue(employeesLL.equals(List.of(james, derian, jamesw)));
-//    }
-//
-//    @Test // NOTE: add to TAIL
-//    public void TestLinkedList_Add_ShouldPass() {
-//        // TODO:
-//
-//        assertTrue(employeesLL.equals(List.of(shat, james, derian, jamesw, mo)));
-//    }
-//
-//    @Test
-//    public void TestLinkedList_Offer_ShouldPass() {
-//        // TODO:
-//
-//        assertTrue(employeesLL.equals(List.of(shat, james, derian, jamesw, mo)));
-//    }
-//
-//    @Test // NOTE: different from remove(employee) method for lists
-//    public void TestLinkedList_Remove_ShouldPass() {
-//        // TODO:
-//
-//        assertTrue(employeesLL.equals(List.of(james, derian, jamesw)));
-//    }
-//
-//    @Test
-//    public void TestLinkedList_Poll_ShouldPass() {
-//        // TODO:
-//        assertEquals(, shat);
-//        assertTrue(employeesLL.equals(List.of(james, derian, jamesw)));
-//    }
-//
-//    @Test
-//    public void TestLinkedList_RemoveEmpty_ShouldThrowException() {
-//        employeesLL.clear();
-//        // TODO: Empty LinkedList throws NoSuchElementException
-//        Exception exception =
-//        assertEquals(exception.getMessage(), null);
-//        assertTrue(employeesLL.isEmpty());
-//    }
-//
-//    @Test
-//    public void TestLinkedList_PollEmpty_ShouldFail() {
-//        employeesLL.clear();
-//        // TODO: Empty LinkedList returns Null
-//        assertNull( );
-//        assertTrue(employeesLL.isEmpty());
-//    }
-//
-//    @Test
-//    public void TestLinkedList_Element_ShouldPass() {
-//        // TODO:
-//        assertEquals(, shat);
-//        assertTrue(employeesLL.equals(List.of(shat, james, derian, jamesw)));
-//    }
-//
-//    @Test
-//    public void TestLinkedList_Peek_ShouldPass() {
-//        // TODO:
-//        assertEquals(, shat);
-//        assertTrue(employeesLL.equals(List.of(shat, james, derian, jamesw)));
-//    }
-//
-//    @Test
-//    public void TestLinkedList_ElementEmpty_ShouldThrowException() {
-//        employeesLL.clear();
-//        // TODO: Empty LinkedList throws NoSuchElementException
-//        Exception exception =
-//        assertEquals(exception.getMessage(), null);
-//        assertTrue(employeesLL.isEmpty());
-//    }
-//
-//    @Test
-//    public void TestLinkedList_PeekEmpty_ShouldFail() {
-//        employeesLL.clear();
-//        // TODO: Empty LinkedList returns Null
-//        assertNull( );
-//        assertTrue(employeesLL.isEmpty());
-//    }
-//
-//    @Test
-//    public void TestPriorityQueue_Add_ShouldPass() {
-//        // TODO:
-//
-//        assertTrue(getPQOrder(employeesPQ).equals(List.of(derian, jamesw, james, mo, shat)));
-//    }
-//
-//    @Test
-//    public void TestPriorityQueue_Offer_ShouldPass() {
-//        // TODO:
-//
-//        assertTrue(getPQOrder(employeesPQ).equals(List.of(derian, jamesw, james, mo, shat)));
-//    }
-//
-//    @Test
-//    public void TestPriorityQueue_Remove_ShouldPass() {
-//        // TODO:
-//
-//        assertTrue(getPQOrder(employeesPQ).equals(List.of(jamesw, james, shat)));
-//    }
-//
-//    @Test
-//    public void TestPriorityQueue_Poll_ShouldPass() {
-//        // TODO:
-//
-//        assertTrue(getPQOrder(employeesPQ).equals(List.of(jamesw, james, shat)));
-//    }
-//
-//    @Test
-//    public void TestPriorityQueue_Element_ShouldPass() {
-//        // TODO:
-//        assertEquals(, derian);
-//        assertTrue(getPQOrder(employeesPQ).equals(List.of(derian, jamesw, james, shat)));
-//    }
-//
-//    @Test
-//    public void TestPriorityQueue_Peek_ShouldPass() {
-//        // TODO:
-//        assertEquals(, derian);
-//        assertTrue(getPQOrder(employeesPQ).equals(List.of(derian, jamesw, james, shat)));
-//    }
-//
-//    public List<Employee> getPQOrder(PriorityQueue<Employee> pq) {
-//        if(pq == null) return null;
-//        List<Employee> inOrder = new ArrayList<>();
-//        PriorityQueue<Employee> copyOf = new PriorityQueue<>(pq);
-//        // TODO: using a while loop with isEmpty() condition, add elements using poll()
-//
-//        return inOrder;
-//    }
-//}
+package com.example.experiments.collection.queue;
+
+import com.example.experiments.model.Employee;
+import com.example.experiments.model.FirstLastNameCompare;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class QueueTest {
+
+    private LinkedList<Employee> employeesLL = new LinkedList<>();
+    private static PriorityQueue<Employee> employeesPQ;
+
+    public static Logger log = LoggerFactory.getLogger(Employee.class);
+    private static List<Employee> finalEmployees;
+    private static Employee derian, shat, james, jamesw, mo, chloe;
+
+    @BeforeAll() // executes once and before BeforeEach
+    public static void InitialSetup () {
+        derian = new Employee("Derian", "Tan", 26, 15500.23);
+        shat = new Employee("Shatyam", "Thee", 24, 9988.23);
+        james = new Employee("James", "Soh", 24, 10000.99);
+        jamesw = new Employee("James", "Bond", 19, 0.0);
+        mo = new Employee("Mohammed", "Salah", 28, 21000.99);
+        chloe = new Employee("Chloe", "Chua", 23, 5000.00);
+        // NOTE: according to natural order (if they implement Comparable) or according to Comparator
+        // TODO: initialise employeesPQ with firstlast name in ascending order
+        employeesPQ =
+    }
+
+    @BeforeEach
+    public void Setup() {
+        // initialise with elements
+        finalEmployees = new ArrayList<>(List.of(shat, james, derian, jamesw));
+        // TODO: add final employees to LL and PQ
+        employeesLL.
+        employeesPQ.
+    }
+
+    @AfterEach
+    public void Breakdown() {
+        finalEmployees.clear();
+        employeesLL.clear();
+        employeesPQ.clear();
+    }
+
+    @Test
+    public void TestQueue_InsertionOrder_ShouldFail() {
+        // TODO: complete the assert method - assertEquals or assertNotEquals?
+        //  LinkedList
+        assertEquals(employeesLL.toString(), finalEmployees.toString());
+
+        // NOTE: PQ internal structure NOT SORTED, so perform loop with poll()
+        assertFalse(employeesPQ.equals(List.of(derian, jamesw, james, shat)));
+
+        assertNotEquals(getPQOrder(employeesPQ).toString(), finalEmployees.toString());
+        List<Employee> sortedByName = new ArrayList<>(List.of(derian, jamesw, james, shat));
+        assertEquals(getPQOrder(employeesPQ).toString(), sortedByName.toString());
+    }
+
+    public List<Employee> getPQOrder(PriorityQueue<Employee> pq) {
+        if(pq == null) return null;
+        List<Employee> inOrder = new ArrayList<>();
+        PriorityQueue<Employee> copyOf = new PriorityQueue<>(pq);
+        while(!copyOf.isEmpty()) {
+            inOrder.add(copyOf.poll());
+        }
+        return inOrder;
+    }
+
+    @Test
+    public void TestLinkedList_GetHead_ShouldPass() {
+        // NOTE: get from HEAD but not remove
+        assertEquals(employeesLL.getFirst(), shat); // throws error when empty
+        assertEquals(employeesLL.element(), shat);  // throws error when empty
+        assertEquals(employeesLL.peek(), shat);     // return NULL when empty
+        assertTrue(employeesLL.equals(List.of(shat, james, derian, jamesw)));
+
+        // NOTE: get from HEAD and removes
+        assertEquals(employeesLL.pop(), shat);      // throws error when empty
+        assertEquals(employeesLL.remove(), james);  // throws error when empty
+        assertEquals(employeesLL.poll(), derian);   // return NULL when empty
+        assertTrue(employeesLL.equals(List.of(jamesw)));
+    }
+
+    @Test // NOTE: get from TAIL but not remove
+    public void TestLinkedList_GetTail_ShouldPass() {
+        assertEquals(employeesLL.getLast(), jamesw); // throws error when empty
+        assertTrue(employeesLL.contains(jamesw));
+    }
+
+    @Test
+    public void TestLinkedList_Add_ShouldPass() {
+        // NOTE: add to HEAD
+        employeesLL.push(mo);
+        assertTrue(employeesLL.equals(List.of(mo, shat, james, derian, jamesw)));
+
+        // NOTE: add to TAIL
+        employeesLL.add(mo);        // throws error when full
+        employeesLL.offer(chloe);   // return FALSE when full
+        assertTrue(employeesLL.equals(List.of(mo, shat, james, derian, jamesw, mo, chloe)));
+    }
+}

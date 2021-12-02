@@ -1,7 +1,11 @@
 * Java Practice - Collections and Coding Interviews *
 
 // The following tools are required:
+<<<<<<< HEAD
 IntelliJ Community Edition (free) [download here](https://www.jetbrains.com/idea/download/)
+=======
+[IntelliJ Community Edition download link](https://www.jetbrains.com/idea/download/)
+>>>>>>> questions_interview
 
 // Branches:
 1. questions_collections: lists, queues, sets and maps
