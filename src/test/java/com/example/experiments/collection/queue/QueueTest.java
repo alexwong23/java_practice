@@ -66,8 +66,9 @@ public class QueueTest {
         if(pq == null) return null;
         List<Employee> inOrder = new ArrayList<>();
         PriorityQueue<Employee> copyOf = new PriorityQueue<>(pq);
-        while(!copyOf.isEmpty()) {
-            inOrder.add(copyOf.poll());
+        // TODO: complete the loop using methods isEmpty() and poll()
+        while( ) {
+
         }
         return inOrder;
     }
@@ -75,15 +76,16 @@ public class QueueTest {
     @Test
     public void TestLinkedList_GetHead_ShouldPass() {
         // NOTE: get from HEAD but not remove
-        assertEquals(employeesLL.getFirst(), shat); // throws error when empty
-        assertEquals(employeesLL.element(), shat);  // throws error when empty
-        assertEquals(employeesLL.peek(), shat);     // return NULL when empty
+        // TODO: complete the comment - throw error or return NULL
+        assertEquals(employeesLL.getFirst(), shat); // TODO: ___ when empty
+        assertEquals(employeesLL.element(), shat);  // TODO: ___ when empty
+        assertEquals(employeesLL.peek(), shat);     // TODO: ___ when empty
         assertTrue(employeesLL.equals(List.of(shat, james, derian, jamesw)));
 
         // NOTE: get from HEAD and removes
-        assertEquals(employeesLL.pop(), shat);      // throws error when empty
-        assertEquals(employeesLL.remove(), james);  // throws error when empty
-        assertEquals(employeesLL.poll(), derian);   // return NULL when empty
+        assertEquals(employeesLL.pop(), shat);      // TODO: ___ when empty
+        assertEquals(employeesLL.remove(), james);  // TODO: ___ when empty
+        assertEquals(employeesLL.poll(), derian);   // TODO: ___ when empty
         assertTrue(employeesLL.equals(List.of(jamesw)));
     }
 
@@ -95,13 +97,14 @@ public class QueueTest {
 
     @Test
     public void TestLinkedList_Add_ShouldPass() {
+        // TODO: fill in the blanks - add, push, offer
         // NOTE: add to HEAD
-        employeesLL.push(mo);
+        employeesLL.____(mo);
         assertTrue(employeesLL.equals(List.of(mo, shat, james, derian, jamesw)));
 
         // NOTE: add to TAIL
-        employeesLL.add(mo);        // throws error when full
-        employeesLL.offer(chloe);   // return FALSE when full
+        employeesLL.____(mo);       // throws error when full
+        employeesLL.____(chloe);    // return FALSE when full
         assertTrue(employeesLL.equals(List.of(mo, shat, james, derian, jamesw, mo, chloe)));
     }
 }
