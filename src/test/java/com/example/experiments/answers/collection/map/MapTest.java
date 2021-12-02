@@ -1,4 +1,4 @@
-package com.example.experiments.collection.map;
+package com.example.experiments.answers.collection.map;
 
 import com.example.experiments.model.Employee;
 import org.junit.jupiter.api.AfterEach;
@@ -44,22 +44,11 @@ public class MapTest {
         asiaTreeMap.clear();
     }
 
-    @Test // NOTE: NO insertion order
-    public void TestHashMap_NoInsertOrder_ShouldFail() {
-        log.info("asiaHashMap=" + printMap(asiaHashMap));
-        assertNotEquals(asiaHashMap.keySet().toString(), "[South Korea, Japan, Singapore]");
-    }
-
-    @Test // NOTE: has insertion order
-    public void TestLinkedHashMap_InsertOrder_ShouldPass() {
-        log.info("asiaLinkedHashMap=" + printMap(asiaLinkedHashMap));
-        assertEquals(asiaLinkedHashMap.keySet().toString(), "[South Korea, Japan, Singapore]");
-    }
-
-    @Test // NOTE: elements sorted
-    public void TestTreeMap_Sorted_ShouldPass() {
-        log.info("asiaTreeMap=" + printMap(asiaTreeMap));
-        assertEquals(asiaTreeMap.keySet().toString(), "[Japan, Singapore, South Korea]");
+    @Test
+    public void TestMaps_InsertionOrder() {
+        assertNotEquals(asiaHashMap.keySet().toString(), "[South Korea, Japan, Singapore]");    // NOTE: NO insertion order
+        assertEquals(asiaLinkedHashMap.keySet().toString(), "[South Korea, Japan, Singapore]"); // NOTE: has insertion order
+        assertEquals(asiaTreeMap.keySet().toString(), "[Japan, Singapore, South Korea]");       // NOTE: elements sorted
     }
 
     @Test

@@ -1,4 +1,4 @@
-package com.example.experiments.collection.list;
+package com.example.experiments.answers.collection.list;
 
 import com.example.experiments.model.Employee;
 import com.example.experiments.model.FirstLastNameCompare;
@@ -96,7 +96,6 @@ public class ArrayListTest {
         assertEquals(jamesw, employees.get(2));
         assertFalse(employees.contains(derian));
     }
-
 
     // NOTE: contains && indexOf
     @Test
