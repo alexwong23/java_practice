@@ -84,7 +84,6 @@ public class MapEqualsTest {
         // asiaArrayHashMap      = <"South Korea", ["Seoul", "Busan"]>, <"Japan", ["Tokyo", "Osaka"]>
         // asiaArrayHashMapTwo   = <"Japan", ["Tokyo", "Osaka"]>, <"South Korea", ["Seoul", "Busan"]>
         // diffArrayHashMap      = <"Japan", ["Tokyo", "Osaka"]>, <"South Korea", []>
-        assertEquals(printHashMap(asiaArrayHashMap), printHashMap(asiaArrayHashMapTwo));
         assertFalse(asiaArrayHashMap.equals(asiaArrayHashMapTwo));          // NOTE: compares reference of String[]
         assertTrue(equalHashMap(asiaArrayHashMap, asiaArrayHashMapTwo));    // NOTE: compares keys AND values using entryset()
     }
