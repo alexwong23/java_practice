@@ -1,6 +1,6 @@
 # Java Practice - Collections and Coding Interviews
 
-## Tools required 
+## Tools required
 [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
 
 ## Branches
@@ -17,9 +17,5 @@
 > Ctrl + A > Ctrl + /
 3. Once complete, proceed to next branch 'questions_interviews'
 > git checkout questions_interviews
-
-> git merge questions_collections
 4. Answers are found in the branch 'answers'
 > git checkout answers
-
-> git checkout questions_interviews
