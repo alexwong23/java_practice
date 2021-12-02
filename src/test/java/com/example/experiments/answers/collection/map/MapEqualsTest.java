@@ -58,38 +58,35 @@ public class MapEqualsTest {
     }
 
     @Test
-    public void TestHashMap_Equal_ShouldPass() {
+    public void TestHashMap_Equals() {
+        // asiaHashMap      = <"South Korea", "Seoul">, <"Japan", "Tokyo">
+        // asiaHashMapTwo   = <"Japan", "Tokyo">, <"South Korea", "Seoul">
+        // diffHashMap      = <"Japan", "Tokyo">, <"South Korea", null>
         assertTrue(asiaHashMap.equals(asiaHashMapTwo));
-    }
-
-    @Test
-    public void TestHashMap_NotEqual_ShouldFail() {
         assertFalse(asiaHashMap.equals(diffHashMap));
     }
 
     //NOTE:
     // entryset(): return set view of <key, value> pairs
     // keyset(): return set view of all keys
+    // values(): return collection view of all values
     @Test
-    public void TestHashMap_EqualKeys_ShouldPass() {
+    public void TestHashMap_EqualKeysAndValues_ShouldPass() {
+        // asiaHashMap      = <"South Korea", "Seoul">, <"Japan", "Tokyo">
+        // asiaHashMapTwo   = <"Japan", "Tokyo">, <"South Korea", "Seoul">
+        // diffHashMap      = <"Japan", "Tokyo">, <"South Korea", null>
         assertTrue(asiaHashMap.keySet().equals(diffHashMap.keySet()));
-    }
-
-    @Test
-    public void TestHashMap_EqualValues_ShouldPass() { // NOTE: // values(): return collection view of all values
         assertTrue(asiaHashMap.values().containsAll(asiaHashMapTwo.values()));
     }
 
     @Test
-    public void TestHashMapArray_NotEqual_ShouldFail() {
+    public void TestHashMapArray_Equals() {
+        // asiaArrayHashMap      = <"South Korea", ["Seoul", "Busan"]>, <"Japan", ["Tokyo", "Osaka"]>
+        // asiaArrayHashMapTwo   = <"Japan", ["Tokyo", "Osaka"]>, <"South Korea", ["Seoul", "Busan"]>
+        // diffArrayHashMap      = <"Japan", ["Tokyo", "Osaka"]>, <"South Korea", []>
         assertEquals(printHashMap(asiaArrayHashMap), printHashMap(asiaArrayHashMapTwo));
-        assertFalse(asiaArrayHashMap.equals(asiaArrayHashMapTwo)); // NOTE: compares reference of String[]
-    }
-
-    @Test
-    public void TestHashMapArray_Equal_ShouldPass() {
-        assertEquals(printHashMap(asiaArrayHashMap), printHashMap(asiaArrayHashMapTwo));
-        assertTrue(equalHashMap(asiaArrayHashMap, asiaArrayHashMapTwo)); // NOTE: compares keys AND values
+        assertFalse(asiaArrayHashMap.equals(asiaArrayHashMapTwo));          // NOTE: compares reference of String[]
+        assertTrue(equalHashMap(asiaArrayHashMap, asiaArrayHashMapTwo));    // NOTE: compares keys AND values using entryset()
     }
 
     public String printHashMap(Map<String, String[]> hashmap) {
