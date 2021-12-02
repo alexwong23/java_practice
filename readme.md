@@ -1,7 +1,7 @@
 <h1> Java Practice - Collections and Coding Interviews </h1>
 
 <h2> Tools required </h2>
-[IntelliJ Community Edition download link](https://www.jetbrains.com/idea/download/)
+> [IntelliJ Community Edition download link](https://www.jetbrains.com/idea/download/)
 
 <h2> Branches </h2>
 1. questions_collections: lists, queues, sets and maps
