@@ -1,14 +1,14 @@
-* Java Practice - Collections and Coding Interviews *
+<h1> Java Practice - Collections and Coding Interviews </h1>
 
-// The following tools are required:
+<h2> Tools required </h2>
 [IntelliJ Community Edition download link](https://www.jetbrains.com/idea/download/)
 
-// Branches:
+<h2> Branches </h2>
 1. questions_collections: lists, queues, sets and maps
 2. questions_interviews: three coding interviews
 3. answers: contains solutions for both collections and interviews
 
-// How to start
+<h2> How to start </h2>
 1. Checkout the first branch 'questions_collections'
 2. Uncomment test cases and complete them one by one
 3. Once complete, proceed to next branch 'questions_interviews'
