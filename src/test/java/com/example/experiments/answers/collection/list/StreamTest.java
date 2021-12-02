@@ -105,10 +105,10 @@ public class StreamTest {
             f.setFirstName(f.getFirstName().toUpperCase());
             f.setLastName(f.getLastName().toUpperCase());
         });
-        List<String> firstNames = employees.stream()
+        List<String> fullNames = employees.stream()
                 .map(x -> x.getFirstName() + " " + x.getLastName())
                 .collect(Collectors.toList());
-        assertEquals(firstNames.toString(), "[SHATYAM THEE, JAMES SOH, DERIAN TAN, JAMES BOND]");
+        assertEquals(fullNames.toString(), "[SHATYAM THEE, JAMES SOH, DERIAN TAN, JAMES BOND]");
     }
 
     @Test
