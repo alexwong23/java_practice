@@ -52,7 +52,7 @@ public class SetTest {
     public void TestSets_InsertionOrder() {
         // HashSet          - no insertion order, unsorted
         // LinkedHashSet    - has insertion order, unsorted
-        // TreeSet          - has insertion order, and sorted
+        // TreeSet          - no insertion order, but sorted
         assertNotEquals(integerHashSet.toString(), "[77, 23, 4, 11, 69, 112, 45, 29]");
         assertEquals(integerLinkedHashSet.toString(), "[77, 23, 4, 11, 69, 112, 45, 29]");
         assertEquals(integerTreeSet.toString(), "[4, 11, 23, 29, 45, 69, 77, 112]");
