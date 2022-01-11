@@ -1,35 +1,56 @@
 package com.example.experiments.interview.four;
 
-import java.util.HashSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import org.springframework.dao.DuplicateKeyException;
+import java.util.LinkedList;
+
+//    TODO:
+//     Question 1: Design your own hashmap with GET and PUT operations
+//      how to store data
+//          - what data to store: key-value pairs
+//          - which data structure: linkedList cause
+//                                      get operation O(1)
+//                                      put operation O(1)
 
 public class InterviewFour {
 
-    public HashSet<String> result;
+    private LinkedList<KeyValuePair> ownHashMap;
 
-    public InterviewFour(String phrase) {
-        result = new HashSet<>();
-        extractWords(phrase);
+    public InterviewFour() {
+        ownHashMap = new LinkedList<>();
     }
 
-    //    TODO: Parse String between brackets < >
-    //      example:
-    //      input: The quick <brown> fox jumps over the <lazy> dog
-    //      output: brown, lazy
+    public String get(String key) throws NullPointerException {
+        for(int i = 0; i < ownHashMap.size(); i++) {
+            if(ownHashMap.get(i).getKey().equals(key)) {
+                return ownHashMap.get(i).getValue();
+            }
+        }
+        throw new NullPointerException("Cannot find key " + key);
+    }
 
-    public void extractWords(String phrase) {
-        Pattern pattern = Pattern.compile("<(.*?)>"); // NOTE: curve brackets ( ) defines regex group for matcher.group()
-        Matcher matcher = pattern.matcher(phrase);
-        while(matcher.find()) {
-            String word = matcher.group(1);
-            result.add(word);
+    public void put(String key, String value) throws DuplicateKeyException {
+        // NOTE: check that there are no duplicate keys
+        //  implement equals method in KeyValuePair
+        if(!ownHashMap.contains(new KeyValuePair(key, value))) {
+            ownHashMap.add(new KeyValuePair(key, value));
+        } else {
+            throw new DuplicateKeyException(key + " already exists in own Hash Map");
         }
     }
 
-    public HashSet<String> getResult() {
-        return result;
+    @Override
+    public String toString() {
+        return "InterviewFour{" +
+                "ownHashMap=" + ownHashMap.toString() +
+                '}';
     }
 
+    public LinkedList<KeyValuePair> getOwnHashMap() {
+        return ownHashMap;
+    }
+
+    public void setOwnHashMap(LinkedList<KeyValuePair> ownHashMap) {
+        this.ownHashMap = ownHashMap;
+    }
 }
 
